@@ -1,0 +1,30 @@
+?tacl macro
+== MACRO PARA DUPLICAR A CONTINGECIA
+#frame
+   #push #INLINEPREFIX
+   #push destination_vol
+   #set #INLINEPREFIX +
+   == Adjust to set the Contingecia destination vol and subvol
+   #set dest_vol \SYS.$VOL.SUBVOL
+   fup/inline/
+      + dup CAFDUP   , [dest_vol].*, sourcedate
+      + dup CAFDUPR  , [dest_vol].*, sourcedate
+      + dup CAFEEXT  , [dest_vol].*, sourcedate
+      + dup CAFEEXTO , [dest_vol].*, sourcedate
+      + dup CAFEFIX  , [dest_vol].*, sourcedate
+      + dup CAFEFIXO , [dest_vol].*, sourcedate
+      + dup CAFTPLT  , [dest_vol].*, sourcedate
+      + dup CRASSIGN , [dest_vol].*, sourcedate
+      + dup L1CONF6  , [dest_vol].*, sourcedate
+      + dup MCRI     , [dest_vol].*, sourcedate
+      + dup MCRO     , [dest_vol].*, sourcedate
+      + dup OBEYCCMP , [dest_vol].*, sourcedate
+      + dup OBEYCEXT , [dest_vol].*, sourcedate
+      + dup OBEYCF1  , [dest_vol].*, sourcedate
+      + dup OBEYCF2  , [dest_vol].*, sourcedate
+      + dup OBEYCF3  , [dest_vol].*, sourcedate
+      + dup OBEYCF4  , [dest_vol].*, sourcedate
+      + dup REPERROR , [dest_vol].*, sourcedate
+      + dup RESULT   , [dest_vol].*, sourcedate
+      + exit
+#unframe
