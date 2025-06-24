@@ -96,7 +96,7 @@ def capture_outsideview_data(num_captures=8, delay=1, output_folder="capturas"):
 if __name__ == "__main__":
     NUM_CAPTURES = 8
     DELAY_BETWEEN_ACTIONS = 0.2
-    OUTPUT_FOLDER = r"C:\Proyectos\capturascaf\docaux\Antes"  # Puedes cambiar esto por la ruta que prefieras
+    OUTPUT_FOLDER = r"C:\Proyectos\certificacion-nds-emision\capturascaf\docaux\Antes"  # Puedes cambiar esto por la ruta que prefieras
     
     capture_outsideview_data(
         num_captures=NUM_CAPTURES, 

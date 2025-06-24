@@ -17,8 +17,8 @@ def calcular_dv_luhn_izquierda(pan_sin_dv: str) -> int:
 def procesar_archivo_pan(nombre_archivo: str):
     try:
         # Archivos de salida
-        archivo_resultados = r"C:\Proyectos\capturascaf\docaux\creartdlogs.txt"
-        archivo_pan_completo = r"C:\Proyectos\capturascaf\docaux\creartd_completas.txt"
+        archivo_resultados = r"C:\Proyectos\certificacion-nds-emision\capturascaf\docaux\creartdlogs.txt"
+        archivo_pan_completo = r"C:\Proyectos\certificacion-nds-emision\capturascaf\docaux\creartd_completas.txt"
         
         with open(nombre_archivo, 'r') as archivo, \
              open(archivo_resultados, 'w') as res_out, \
@@ -65,5 +65,5 @@ def procesar_archivo_pan(nombre_archivo: str):
 # =========================
 # CONFIGURACIÓN DE RUTAS
 # =========================
-nombre_archivo = r"C:\Proyectos\capturascaf\docaux\creartaltas.txt"  # debe estar creado
+nombre_archivo = r"C:\Proyectos\certificacion-nds-emision\capturascaf\docaux\creartaltas.txt"  # debe estar creado
 procesar_archivo_pan(nombre_archivo)

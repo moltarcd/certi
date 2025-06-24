@@ -8,11 +8,11 @@ from docx.oxml.ns import qn
 # =========================
 
 # Carpetas que contienen archivos TXT
-carpeta_antes = r'C:\Proyectos\capturascaf\docaux\Antes'
-carpeta_despues = r'C:\Proyectos\capturascaf\docaux\Despues'
+carpeta_antes = r'C:\Proyectos\certificacion-nds-emision\capturascaf\docaux\Antes'
+carpeta_despues = r'C:\Proyectos\certificacion-nds-emision\capturascaf\docaux\Despues'
 
 # Carpeta de salida del documento Word
-carpeta_salida = r'C:\Proyectos\capturascaf\docaux'
+carpeta_salida = r'C:\Proyectos\certificacion-nds-emision\capturascaf\docaux'
 nombre_archivo_salida = 'reporte_pruebas.docx'
 ruta_salida = os.path.join(carpeta_salida, nombre_archivo_salida)
 

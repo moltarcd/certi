@@ -19,8 +19,8 @@ def encrypt_text(text):
 # =========================
 # CONFIGURACIÓN DE RUTAS
 # =========================
-input_filename  = r'C:\Proyectos\capturascaf\docaux\creartd_completas.txt'
-output_filename = r'C:\Proyectos\capturascaf\docaux\encrypted_results.txt'
+input_filename  = r'C:\Proyectos\certificacion-nds-emision\capturascaf\docaux\creartd_completas.txt'
+output_filename = r'C:\Proyectos\certificacion-nds-emision\capturascaf\docaux\encrypted_results.txt'
 
 with open(input_filename, 'r') as infile, open(output_filename, 'w') as outfile:
     # Escribir encabezados

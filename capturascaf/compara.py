@@ -57,9 +57,9 @@ def comparar_archivos(archivo1, archivo2):
 # =========================
 # CONFIGURACIÓN DE RUTAS
 # =========================
-carpeta_antes = r"C:\Proyectos\capturascaf\docaux\Antes"
-carpeta_despues = r"C:\Proyectos\capturascaf\docaux\Despues"
-archivo_salida = r"C:\Proyectos\capturascaf\docaux\comparacion_resultado.txt"
+carpeta_antes = r"C:\Proyectos\certificacion-nds-emision\capturascaf\docaux\Antes"
+carpeta_despues = r"C:\Proyectos\certificacion-nds-emision\capturascaf\docaux\Despues"
+archivo_salida = r"C:\Proyectos\certificacion-nds-emision\capturascaf\docaux\comparacion_resultado.txt"
 
 archivos = [a for a in os.listdir(carpeta_antes) if a.endswith('.txt')]
 
