@@ -1,0 +1,41 @@
+<!-- frontend/templates/execution/index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejecución de Pruebas</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container py-5">
+    <h1 class="mb-4">🧪 Ejecutar Pruebas</h1>
+
+    <form action="{{ url_for('execution.run_tests') }}" method="post">
+        <div class="mb-3">
+            <label for="base_url" class="form-label">URL Base del Entorno</label>
+            <input type="text" class="form-control" id="base_url" name="base_url" 
+                   placeholder="https://api.example.com" required>
+        </div>
+
+        <h5>Seleccionar Casos de Prueba</h5>
+        {% if test_cases %}
+            <div class="list-group mb-4">
+            {% for case in test_cases %}
+                <label class="list-group-item">
+                    <input type="checkbox" name="test_cases" value="{{ case.file }}" checked>
+                    <strong>{{ case.name }}</strong>
+                    <small class="text-muted"> {{ case.method }} {{ case.endpoint }}</small>
+                </label>
+            {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-success">▶️ Ejecutar Pruebas</button>
+        {% else %}
+            <p class="text-warning">No se encontraron casos de prueba. Genera algunos en Análisis primero.</p>
+        {% endif %}
+    </form>
+
+    <hr>
+    <a href="/" class="btn btn-secondary">← Inicio</a>
+</div>
+</body>
+</html>

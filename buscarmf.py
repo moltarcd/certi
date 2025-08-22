@@ -1,8 +1,8 @@
 def buscar_en_columna():
     # Configuración predefinida - MODIFICA ESTOS VALORES SEGÚN TUS NECESIDADES
-    archivo_entrada = "C:\\Proyectos\\certificacion-nds-emision\\capturascaf\\BF250512C3.TXT"  # Archivo de entrada
-    archivo_salida = "C:\\Proyectos\\certificacion-nds-emision\\capturascaf\\BFresultmf.TXT"    # Archivo de salida
-    valor_buscar = "t"  # Valor a buscar en la columna 65 (1 carácter)
+    archivo_entrada = r"C:\Proyectos\certificacion-nds-emision\docaux\BF250512C3.TXT"  # Archivo de entrada
+    archivo_salida = r"C:\Proyectos\certificacion-nds-emision\docaux\BFresultmf.TXT"    # Archivo de salida
+    valor_buscar = "V"  # Valor a buscar en la columna 65 (1 carácter)
     columna_busqueda = 64  # Columna donde buscar (basado en 1)
 
     try:

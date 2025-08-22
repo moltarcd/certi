@@ -1,0 +1,38 @@
+<!-- frontend/templates/utils/index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Utilitarios - QA Agent</title>
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" />
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="/">🧠 QA Agent</a>
+      <a class="btn btn-outline-light" href="/">← Volver</a>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <h2>🛠️ Utilitarios</h2>
+    <p class="text-muted">Herramientas de soporte para QA y desarrollo de pruebas</p>
+
+    {% for categoria, lista in herramientas.items() %}
+    <div class="card mb-4">
+      <div class="card-header bg-secondary text-white">
+        <h5>{{ categoria | title }}</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        {% for h in lista %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span>{{ h.nombre }}</span>
+          <a href="{{ url_for('utils.ejecutar_herramienta', herramienta_id=h.id) }}" class="btn btn-sm btn-primary">Ejecutar</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+</body>
+</html>

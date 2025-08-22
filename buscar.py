@@ -40,10 +40,10 @@ def buscar_en_columnas(archivo_entrada, archivo_salida, valor_buscar):
 
 
 if __name__ == "__main__":
-    # Configuración predefinida - MODIFICA ESTOS VALORES SEGÚN TUS NECESIDADES
-    archivo_entrada = "C:\Proyectos\certificacion-nds-emision\capturascaf\BF250512C3.TXT"      # Archivo de entrada predefinido
-    archivo_salida = "C:\Proyectos\certificacion-nds-emision\capturascaf\BFresultB24.TXT"  # Archivo de salida predefinido
-    valor_buscar = "P"                 # Valor a buscar predefinido
+    # Configuración  
+    archivo_entrada = "C:\Proyectos\certificacion-nds-emision\docaux\BF250512C3.TXT"      # Archivo de entrada predefinido
+    archivo_salida = "C:\Proyectos\certificacion-nds-emision\docaux\BFresultB24.TXT"  # Archivo de salida predefinido
+    valor_buscar = "EG"                 # Valor a buscar predefinido
     
     # Mostrar configuración que se está usando
     print("\nConfiguración actual:")

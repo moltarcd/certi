@@ -1,0 +1,1093 @@
+
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Reporte de Ejecución - Reporte de Tarjetas</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1 { color: #2c3e50; }
+            table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+            th, td { border: 1px solid #bdc3c7; padding: 10px; text-align: left; vertical-align: top; }
+            th { background-color: #3498db; color: white; }
+            .success { background-color: #d5f4e6; }
+            .error { background-color: #fadbd8; }
+            .skipped { background-color: #f0f0f0; }
+            .code { font-family: 'Courier New', monospace; background: #ecf0f1; padding: 5px; border-radius: 3px; }
+            .summary { margin: 30px 0; padding: 15px; background: #f8f9fa; border: 1px solid #ddd; border-radius: 5px; }
+        </style>
+    </head>
+    <body>
+        <h1>📋 Reporte de Ejecución - Reporte de Tarjetas Perdidas/Robadas</h1>
+        <p><strong>Fecha:</strong> 2025-08-14 10:56:41</p>
+
+        <div class="summary">
+            <h2>📊 Resumen de Ejecución</h2>
+            <ul>
+                <li>✅ Exitosos: 28</li>
+                <li>❌ Fallidos: 10</li>
+                <li>⏭️ Saltados: 11</li>
+                <li>🔁 Total Casos: 49</li>
+            </ul>
+        </div>
+
+        <h2>🔍 Detalle por Caso</h2>
+        <table>
+            <tr>
+                <th>Caso</th>
+                <th>Request</th>
+                <th>Response</th>
+            </tr>
+    
+            <tr class="error">
+                <td>1<br><small>DNI: 41805320</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 41805320,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "442548",
+    "last_four_digits": "9730"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></div></td>
+                <td>Status: ERROR<br><div class="code"><pre>{
+  "errors": [
+    {
+      "status": "400",
+      "code": "DTC-400",
+      "title": "Card already reported"
+    }
+  ]
+}</pre></div></td>
+            </tr>
+            
+            <tr class="error">
+                <td>2<br><small>DNI: 40839379</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 40839379,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451769",
+    "last_four_digits": "1793"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></div></td>
+                <td>Status: ERROR<br><div class="code"><pre>{
+  "errors": [
+    {
+      "status": "400",
+      "code": "DTC-400",
+      "title": "Card already reported"
+    }
+  ]
+}</pre></div></td>
+            </tr>
+            
+            <tr class="error">
+                <td>3<br><small>DNI: 13722583</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></div></td>
+                <td>Status: ERROR<br><div class="code"><pre>{
+  "errors": [
+    {
+      "status": "400",
+      "code": "DTC-400",
+      "title": "Card already reported"
+    }
+  ]
+}</pre></div></td>
+            </tr>
+            
+            <tr class="error">
+                <td>4<br><small>DNI: 13722583</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451751",
+    "last_four_digits": "9420"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></div></td>
+                <td>Status: ERROR<br><div class="code"><pre>{
+  "errors": [
+    {
+      "status": "404",
+      "code": "DTC-404",
+      "title": "Cards not found"
+    }
+  ]
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>5<br><small>DNI: 31704941</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 31704941,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "442548",
+    "last_four_digits": "0602"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350371"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>6<br><small>DNI: 27890121</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 27890121,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "442548",
+    "last_four_digits": "0089"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350373"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>7<br><small>DNI: 27890122</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 27890122,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "442548",
+    "last_four_digits": "0097"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350375"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="error">
+                <td>8<br><small>DNI: 32624316</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 32624316,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "434531",
+    "last_four_digits": "4709"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: ERROR<br><div class="code"><pre>{
+  "errors": [
+    {
+      "status": "404",
+      "code": "DTC-404",
+      "title": "Cards not found"
+    }
+  ]
+}</pre></div></td>
+            </tr>
+            
+            <tr class="skipped">
+                <td>9<br><small>DNI: 37501345</small></td>
+                <td colspan="2"><em>⏭️ Caso saltado (ejecutar=no)</em></td>
+            </tr>
+            
+            <tr class="skipped">
+                <td>10<br><small>DNI: 37501333</small></td>
+                <td colspan="2"><em>⏭️ Caso saltado (ejecutar=no)</em></td>
+            </tr>
+            
+            <tr class="success">
+                <td>11<br><small>DNI: 26937238</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 26937238,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "442548",
+    "last_four_digits": "0105"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350379"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>12<br><small>DNI: 27890123</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 27890123,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "442548",
+    "last_four_digits": "0113"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350382"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>13<br><small>DNI: 27890124</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 27890124,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "442548",
+    "last_four_digits": "0121"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350384"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="error">
+                <td>14<br><small>DNI: 32624317</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 32624317,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "434531",
+    "last_four_digits": "8135"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: ERROR<br><div class="code"><pre>{
+  "errors": [
+    {
+      "status": "404",
+      "code": "DTC-404",
+      "title": "Cards not found"
+    }
+  ]
+}</pre></div></td>
+            </tr>
+            
+            <tr class="skipped">
+                <td>15<br><small>DNI: 34123456</small></td>
+                <td colspan="2"><em>⏭️ Caso saltado (ejecutar=no)</em></td>
+            </tr>
+            
+            <tr class="skipped">
+                <td>16<br><small>DNI: 37501334</small></td>
+                <td colspan="2"><em>⏭️ Caso saltado (ejecutar=no)</em></td>
+            </tr>
+            
+            <tr class="error">
+                <td>17<br><small>DNI: 30501307</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 30501307,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451769",
+    "last_four_digits": "3387"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: ERROR<br><div class="code"><pre>{
+  "errors": [
+    {
+      "status": "404",
+      "code": "DTC-404",
+      "title": "Cards not found"
+    }
+  ]
+}</pre></div></td>
+            </tr>
+            
+            <tr class="error">
+                <td>18<br><small>DNI: 30501308</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 30501308,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451769",
+    "last_four_digits": "3386"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: ERROR<br><div class="code"><pre>{
+  "errors": [
+    {
+      "status": "404",
+      "code": "DTC-404",
+      "title": "Cards not found"
+    }
+  ]
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>19<br><small>DNI: 30501233</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 30501233,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451769",
+    "last_four_digits": "8085"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350393"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>20<br><small>DNI: 30501254</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 30501254,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451769",
+    "last_four_digits": "2606"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350395"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>21<br><small>DNI: 30501270</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 30501270,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451769",
+    "last_four_digits": "8879"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350397"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>22<br><small>DNI: 30501272</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 30501272,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451769",
+    "last_four_digits": "4586"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350400"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>23<br><small>DNI: 30501284</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 30501284,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451769",
+    "last_four_digits": "8125"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350402"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>24<br><small>DNI: 30501288</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 30501288,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451769",
+    "last_four_digits": "6472"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350404"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>25<br><small>DNI: 30501291</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 30501291,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451769",
+    "last_four_digits": "3236"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350406"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="error">
+                <td>26<br><small>DNI: 30501319</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 30501319,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "473710",
+    "last_four_digits": "8764"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: ERROR<br><div class="code"><pre>{
+  "errors": [
+    {
+      "status": "404",
+      "code": "DTC-404",
+      "title": "Cards not found"
+    }
+  ]
+}</pre></div></td>
+            </tr>
+            
+            <tr class="skipped">
+                <td>27<br><small>DNI: 37501343</small></td>
+                <td colspan="2"><em>⏭️ Caso saltado (ejecutar=no)</em></td>
+            </tr>
+            
+            <tr class="skipped">
+                <td>28<br><small>DNI: 37501331</small></td>
+                <td colspan="2"><em>⏭️ Caso saltado (ejecutar=no)</em></td>
+            </tr>
+            
+            <tr class="success">
+                <td>29<br><small>DNI: 30501237</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 30501237,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451769",
+    "last_four_digits": "3852"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350411"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>30<br><small>DNI: 30501252</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 30501252,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451769",
+    "last_four_digits": "2314"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350413"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>31<br><small>DNI: 30501253</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 30501253,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451769",
+    "last_four_digits": "8828"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350415"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>32<br><small>DNI: 30501269</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 30501269,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451769",
+    "last_four_digits": "8872"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350418"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>33<br><small>DNI: 30501273</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 30501273,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451769",
+    "last_four_digits": "2111"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350420"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>34<br><small>DNI: 30501283</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 30501283,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451769",
+    "last_four_digits": "3995"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350422"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>35<br><small>DNI: 30501289</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 30501289,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451769",
+    "last_four_digits": "0269"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350424"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>36<br><small>DNI: 30501290</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 30501290,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451769",
+    "last_four_digits": "4309"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350427"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>37<br><small>DNI: 30501292</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 30501292,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451769",
+    "last_four_digits": "3129"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350429"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="error">
+                <td>38<br><small>DNI: 30501238</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 30501238,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "473710",
+    "last_four_digits": "6319"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: ERROR<br><div class="code"><pre>{
+  "errors": [
+    {
+      "status": "404",
+      "code": "DTC-404",
+      "title": "Cards not found"
+    }
+  ]
+}</pre></div></td>
+            </tr>
+            
+            <tr class="skipped">
+                <td>39<br><small>DNI: 37501344</small></td>
+                <td colspan="2"><em>⏭️ Caso saltado (ejecutar=no)</em></td>
+            </tr>
+            
+            <tr class="skipped">
+                <td>40<br><small>DNI: 37501332</small></td>
+                <td colspan="2"><em>⏭️ Caso saltado (ejecutar=no)</em></td>
+            </tr>
+            
+            <tr class="success">
+                <td>41<br><small>DNI: 22345679</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 22345679,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "442548",
+    "last_four_digits": "0215"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350433"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>42<br><small>DNI: 22345679</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 22345679,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "442548",
+    "last_four_digits": "0223"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350435"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>43<br><small>DNI: 22345679</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 22345679,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "442548",
+    "last_four_digits": "0231"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350438"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>44<br><small>DNI: 30501241</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 30501241,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451769",
+    "last_four_digits": "5516"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350440"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>45<br><small>DNI: 30501242</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 30501242,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451769",
+    "last_four_digits": "1746"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350442"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="success">
+                <td>46<br><small>DNI: 30501243</small></td>
+                <td><div class="code"><pre>{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 30501243,
+    "gender": "M"
+  },
+  "afip": {
+    "cuit": "DNI"
+  },
+  "card_details": {
+    "bin": "451769",
+    "last_four_digits": "4155"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></div></td>
+                <td>Status: 200<br><div class="code"><pre>{
+  "description": "OK",
+  "code": "0",
+  "denunciation_code": "16350444"
+}</pre></div></td>
+            </tr>
+            
+            <tr class="skipped">
+                <td>47<br><small>DNI: 30501251</small></td>
+                <td colspan="2"><em>⏭️ Caso saltado (ejecutar=no)</em></td>
+            </tr>
+            
+            <tr class="skipped">
+                <td>48<br><small>DNI: 30501256</small></td>
+                <td colspan="2"><em>⏭️ Caso saltado (ejecutar=no)</em></td>
+            </tr>
+            
+            <tr class="skipped">
+                <td>49<br><small>DNI: 30501259</small></td>
+                <td colspan="2"><em>⏭️ Caso saltado (ejecutar=no)</em></td>
+            </tr>
+            
+        </table>
+        <footer>
+            <p><em>Reporte generado automáticamente por el script de automatización QA.</em></p>
+        </footer>
+    </body>
+    </html>
+    

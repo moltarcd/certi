@@ -1,0 +1,2007 @@
+{
+	"info": {
+		"_postman_id": "9ae06e0d-2be8-4a43-b547-c575b06de1d1",
+		"name": "Transferencias 3.0 Manual",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API Prisma Generacion OTP",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"pm.collectionVariables.set(\"otp\", data.otp);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "WNCLBrsayAETlVAmQbG1dmaYMA0ntTW9",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "apikey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"payer\": {\r\n        \"name\": \"MARCOS IAN CARULLO BEDIA\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"35266200\"\r\n        },\r\n        \"account\": {\r\n            \"cbu\": \"0171234000035266200116\"\r\n        },\r\n        \"wallet\": {\r\n            \"cuit\": \"30643990632\"\r\n        }\r\n    },\r\n    \"transaction\": {\r\n        \"qr_id\": \"123456789\",\r\n        \"amount\": {\r\n            \"value\": 1000,\r\n            \"currency\": \"ARS\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-qa.prismamediosdepago.com/v1/processor/otp-wallet/otps",
+					"protocol": "https",
+					"host": [
+						"api-qa",
+						"prismamediosdepago",
+						"com"
+					],
+					"path": [
+						"v1",
+						"processor",
+						"otp-wallet",
+						"otps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Prisma Transferencia 1",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "tokenType",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "e1KYKeLgVyM3fVRYE1hCLiBjzwbQ",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781442\",\r\n        \"authorization_code\": \"0ZA149\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 100,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\",\r\n        \"mcc\": 123456\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"35366170\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"27000106106\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\",\r\n                \"cvu\": null\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0110599530000027947497\",\r\n                \"cvu\": null\r\n            }\r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\",\r\n                \"cvu\": null\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170018\",\r\n                \"cvu\": null\r\n            }\r\n        }\r\n    },\r\n    \"administrator\": {\r\n        \"name\": \"LI\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-qa.prismamediosdepago.com/v1/processor/transfer/payments/passive",
+					"protocol": "https",
+					"host": [
+						"api-qa",
+						"prismamediosdepago",
+						"com"
+					],
+					"path": [
+						"v1",
+						"processor",
+						"transfer",
+						"payments",
+						"passive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Prisma Transferencia 1 Copy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.unset(\"otp\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "tokenType",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "5lLENlzdgYTPKxWcEXskAAYmRVKY",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781442\",\r\n        \"authorization_code\": \"0ZAC56\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 100,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\"\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"35366170\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"27000106106\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170018\",\r\n                \"cvu\": null\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0171234000035266200116\",\r\n                \"cvu\": null\r\n            }\r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170018\",\r\n                \"cvu\": null\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0150501601000029353454\",\r\n                \"cvu\": null\r\n            }\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-qa.prismamediosdepago.com/v1/processor/transfer/payments/passive",
+					"protocol": "https",
+					"host": [
+						"api-qa",
+						"prismamediosdepago",
+						"com"
+					],
+					"path": [
+						"v1",
+						"processor",
+						"transfer",
+						"payments",
+						"passive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Prisma Transferencia 2",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.unset(\"otp\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "tokenType",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "x5esesJvChaE2VdHT6lYk7fgmjmY",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781442\",\r\n        \"authorization_code\": \"0ZA201\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 100,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\",\r\n        \"mcc\": 1\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"35366170\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"27000106106\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170018\",\r\n                \"cvu\": null\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0110599530000027947497\",\r\n                \"cvu\": null\r\n            }\r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0150542902000105011507\",\r\n                \"cvu\": null\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0110599530000027947497\",\r\n                \"cvu\": null\r\n            }\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-qa.prismamediosdepago.com/v1/processor/transfer/payments/passive",
+					"protocol": "https",
+					"host": [
+						"api-qa",
+						"prismamediosdepago",
+						"com"
+					],
+					"path": [
+						"v1",
+						"processor",
+						"transfer",
+						"payments",
+						"passive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Prisma Transferencia 2 Copy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.unset(\"otp\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "tokenType",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "47pkA91UhgSLZGUZl1K1xQvx4ilQ",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781442\",\r\n        \"authorization_code\": \"0ZAC57\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 100,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\",\r\n        \"mcc\": 1\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"35366170\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"27000106106\",\r\n            \"account\": {\r\n                \"cbu\": \"0150542902000105011507\",\r\n                \"cvu\": null\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0150501601000029353454\",\r\n                \"cvu\": null\r\n            }\r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170018\",\r\n                \"cvu\": null\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0150501601000029353454\",\r\n                \"cvu\": null\r\n            }\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-qa.prismamediosdepago.com/v1/processor/transfer/payments/passive",
+					"protocol": "https",
+					"host": [
+						"api-qa",
+						"prismamediosdepago",
+						"com"
+					],
+					"path": [
+						"v1",
+						"processor",
+						"transfer",
+						"payments",
+						"passive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Prisma TRF Devoluciones 1",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.unset(\"otp\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "tokenType",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "AgAPzHZuWSgVoxdx7jVPel4la536",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"original_transaction\": {\r\n        \"reference_number\": \"228957781245\",\r\n        \"authorization_code\": \"0BA999\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 200,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"DCT\",\r\n        \"mcc\": 123456\r\n    },\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781245\",\r\n        \"authorization_code\": \"0BA999\",\r\n        \"amount\": {\r\n            \"value\": 200,\r\n            \"currency\": \"ARS\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"string\",\r\n        \"cuit\": \"20300666666\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"NombreComercio\",\r\n        \"cuit\": \"20300444444\"\r\n    },\r\n    \"wallet\": {\r\n        \"name\": \"string\",\r\n        \"cuit\": \"20300555555\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"27000106106\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170018\"\r\n            }\r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0171234000035266200116\"\r\n            }\r\n        }\r\n    },\r\n    \"administrator\": {\r\n        \"name\": \"PR\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/administratorCore/v1/refunds/payments/passive",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"administratorCore",
+						"v1",
+						"refunds",
+						"payments",
+						"passive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Prisma TRF Devoluciones 1 Prueba",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.unset(\"otp\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "tokenType",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "AgAPzHZuWSgVoxdx7jVPel4la536",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"original_transaction\": {\r\n        \"reference_number\": \"228957781245\",\r\n        \"authorization_code\": \"0BA999\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 200,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"DCT\",\r\n        \"mcc\": 123456\r\n    },\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781245\",\r\n        \"authorization_code\": \"0BA999\",\r\n        \"amount\": {\r\n            \"value\": 200,\r\n            \"currency\": \"ARS\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"string\",\r\n        \"cuit\": \"20300666666\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"NombreComercio\",\r\n        \"cuit\": \"20300444444\"\r\n    },\r\n    \"wallet\": {\r\n        \"name\": \"string\",\r\n        \"cuit\": \"20300555555\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"27000106106\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170018\"\r\n            }\r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0171234000035266200116\"\r\n            }\r\n        }\r\n    },\r\n    \"administrator\": {\r\n        \"name\": \"PR\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/administratorCore/v1/refunds/payments/passive",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"administratorCore",
+						"v1",
+						"refunds",
+						"payments",
+						"passive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Prisma TRF Devoluciones 2",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.unset(\"otp\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "tokenType",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "qr0HF81VEv330g4xmyzn2xD2CLJT",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"original_transaction\": {\r\n        \"reference_number\": \"228957781111\",\r\n        \"authorization_code\": \"0BA999\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 200,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"DCT\",\r\n        \"mcc\": 123456\r\n    },\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781111\",\r\n        \"authorization_code\": \"0BA999\",\r\n        \"amount\": {\r\n            \"value\": 200,\r\n            \"currency\": \"ARS\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"string\",\r\n        \"cuit\": \"20300666666\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"string\",\r\n        \"cuit\": \"20300444444\"\r\n    },\r\n    \"wallet\": {\r\n        \"name\": \"string\",\r\n        \"cuit\": \"20300555555\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0150542902000105011507\"\r\n            }\r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170111\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0150542902000105011507\"\r\n            }\r\n        }\r\n    },\r\n    \"administrator\": {\r\n        \"name\": \"PR\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/administratorCore/v1/refunds/payments/passive",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"administratorCore",
+						"v1",
+						"refunds",
+						"payments",
+						"passive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Prisma TRF Devoluciones 2 Copy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.unset(\"otp\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "tokenType",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "qr0HF81VEv330g4xmyzn2xD2CLJT",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"original_transaction\": {\r\n        \"reference_number\": \"228957781111\",\r\n        \"authorization_code\": \"0BA999\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 200,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"DCT\",\r\n        \"mcc\": 123456\r\n    },\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781111\",\r\n        \"authorization_code\": \"0BA999\",\r\n        \"amount\": {\r\n            \"value\": 200,\r\n            \"currency\": \"ARS\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"string\",\r\n        \"cuit\": \"20300666666\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"string\",\r\n        \"cuit\": \"20300444444\"\r\n    },\r\n    \"wallet\": {\r\n        \"name\": \"string\",\r\n        \"cuit\": \"20300555555\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0150542902000105011507\"\r\n            }\r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170111\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0150542902000105011507\"\r\n            }\r\n        }\r\n    },\r\n    \"administrator\": {\r\n        \"name\": \"PR\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/administratorCore/v1/refunds/payments/passive",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"administratorCore",
+						"v1",
+						"refunds",
+						"payments",
+						"passive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API UPF Generacion OTP",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDb2VBdXRoVCIsImNpZCI6IjBQSEp5Yng2b0FzREZ3NEw0RXpOV3ciLCJ1aWQiOiJURVNUSU5HMDcyIiwic3ViIjoiMDcyIiwiaWF0IjoiMTYwODA0NTU5NyIsImVpbiI6IjE4MDAiLCJleHAiOiIxNjA4MDQ3Mzk3Iiwic3lzIjoiQUxJQVMiLCJhY3QiOltdLCJwcmQiOltdLCJjdWl0cyI6W119.wKmQrtsgDZPvYiDzQJqqmfStMqsYrSxdjRNgoTsNC0M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"payer\": {\r\n        \"name\": \"MARCOS IAN CARULLO BEDIA\",\r\n        \"document\": {\r\n          \"type\": \"DNI\",\r\n          \"number\": \"35366170\"\r\n        },\r\n        \"account\": {\r\n          \"cbu\": \"0725555700035366170117\"\r\n        },\r\n        \"wallet\": {\r\n          \"cuit\": \"30643990632\"\r\n        }\r\n      },\r\n      \"transaction\": {\r\n          \"qr_id\": \"123456789ABCDEF\",\r\n          \"amount\": {\r\n          \"value\": 1000,\r\n          \"currency\": \"ARS\"\r\n        }\r\n      }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/administratorCore/v1/instant_payment/otps",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"administratorCore",
+						"v1",
+						"instant_payment",
+						"otps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Prisma Consulta de Titularidad BNLC",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5VPZNft64illh5LpDcPIhW30Jd6z",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cbu\": \"0150542902000105011507\",\r\n    \"cvu\": null,\r\n    \"reference_number\": \"123456789012\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-qa.prismamediosdepago.com/v1/processor/instant_payment/holder_validation",
+					"protocol": "https",
+					"host": [
+						"api-qa",
+						"prismamediosdepago",
+						"com"
+					],
+					"path": [
+						"v1",
+						"processor",
+						"instant_payment",
+						"holder_validation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API UPF Consulta Titu CBU LINK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cbu\": \"0110599530000027947497\",\r\n    \"cvu\": null,\r\n    \"reference_number\": \"123456789012\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/administratorCore/v1/instant_payment/holder_validation",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"administratorCore",
+						"v1",
+						"instant_payment",
+						"holder_validation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API UPF Consulta Titu CBU BNLC",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cbu\": \"0150501601000029353454\",\r\n    \"cvu\": null,\r\n    \"reference_number\": \"12345678912\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/administratorCore/v1/instant_payment/holder_validation",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"administratorCore",
+						"v1",
+						"instant_payment",
+						"holder_validation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API UPF Transferencia",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781442\",\r\n        \"authorization_code\": \"0BACZ8\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 20000.00,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\"\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"10004689\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"27000106106\",\r\n            \"account\": {\r\n                \"cbu\": \"0150542902000105011507\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0150501601000029353454\"\r\n            }\r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170018\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0150501601000029353454\"\r\n            }\r\n        }\r\n    },\r\n    \"administrator\": {\r\n        \"name\": \"PR\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/administratorCore/v1/instant_payment/payments",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"administratorCore",
+						"v1",
+						"instant_payment",
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TRF1 - RIOP Billetera - RIOP Puente - FNCS Comercio",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781119\",\r\n        \"authorization_code\": \"0BA945\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 100,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\",\r\n        \"mcc\": 123456\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"35366170\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"27000106106\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170018\"\r\n            }\r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0171234000035266200116\"\r\n            }\r\n        }\r\n    },\r\n    \"administrator\": {\r\n        \"name\": \"PR\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/administratorCore/v1/payments/passive",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"administratorCore",
+						"v1",
+						"payments",
+						"passive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TRF2 - Cta Puente FNCS - RIOP",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781442\",\r\n        \"authorization_code\": \"0BA106\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 100,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\"\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"35366170\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"27000106106\",\r\n            \"account\": {\r\n                \"cbu\": \"0171234000035266200116\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170018\"\r\n            }\r\n            \r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170018\"\r\n            }\r\n        }\r\n    },\r\n    \"administrator\": {\r\n        \"name\": \"PR\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/administratorCore/v1/payments/passive",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"administratorCore",
+						"v1",
+						"payments",
+						"passive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TRF1 - Pruebas 86",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781442\",\r\n        \"authorization_code\": \"0ZAC86\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 100,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\",\r\n        \"mcc\": \"1\"\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"95407712\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"27000106106\",\r\n            \"account\": {\r\n                \"cbu\": \"3108100900010000010277\",\r\n                \"cvu\": null\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170018\",\r\n                \"cvu\": null\r\n            }\r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"3108100900010000010277\",\r\n                \"cvu\": null\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0171234000035266200017\",\r\n                \"cvu\": null\r\n            }\r\n        }\r\n    },\r\n    \"administrator\": {\r\n        \"name\": \"PR\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/administratorCore/v1/payments/passive",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"administratorCore",
+						"v1",
+						"payments",
+						"passive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REV TRF 1 - ICBC OFF - FNCS OFF",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781442\",\r\n        \"authorization_code\": \"0BA9\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 600,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\"\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"35366170\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"27000106106\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0171234000035266200116\"\r\n            }\r\n            \r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": null\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170118\"\r\n            }\r\n        }\r\n    },\r\n    \"administrator\": {\r\n        \"name\": \"PR\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/administratorCore/v1/reversal/payments/passive",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"administratorCore",
+						"v1",
+						"reversal",
+						"payments",
+						"passive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REV TRF 1 - ICBC ON - FNCS OFF",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781442\",\r\n        \"authorization_code\": \"0BAUI3\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 25,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\"\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"10004689\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"27000106106\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170018\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0171234000035266200116\"\r\n            }\r\n            \r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170018\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\"\r\n            }\r\n        }\r\n    },\r\n    \"administrator\": {\r\n        \"name\": \"PR\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/reversal",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"reversal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REV TRF2 - Cta Puente FNCS OFF - ICBC ON",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781442\",\r\n        \"authorization_code\": \"0BAU48\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 100,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\"\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"10004689\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"27000106106\",\r\n            \"account\": {\r\n                \"cbu\": \"0171234000035266200116\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0150501601000029353454\"\r\n            }\r\n            \r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0150501601000029111111\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0150501601000029353454\"\r\n            }\r\n        }\r\n    },\r\n    \"administrator\": {\r\n        \"name\": \"PR\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/reversal",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"reversal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TRF 2 - LINK",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781123\",\r\n        \"authorization_code\": \"0VACA3\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 100,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\"\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"35266200\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen puente\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0171234000035266200116\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino usuario de LINK\",\r\n            \"identification_number\": \"20338030739\",\r\n            \"account\": {\r\n                \"cbu\": \"0110599530000027947497\"\r\n            }\r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen usuario\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0171234000035266200116\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino usuario de LINK\",\r\n            \"identification_number\": \"20338030739\",\r\n            \"account\": {\r\n                \"cbu\": \"0110599530000027947497\"\r\n            }\r\n        }\r\n    },\r\n        \"administrator\": {\r\n        \"name\": \"PR\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/administratorCore/v1/instant_payment/payments",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"administratorCore",
+						"v1",
+						"instant_payment",
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REV TRF 2 - LINK",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781442\",\r\n        \"authorization_code\": \"1BA106\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 100,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\"\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"10004689\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"27000106106\",\r\n            \"account\": {\r\n                \"cbu\": \"0171234000035266200116\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0110599530000027947497\"\r\n            }\r\n            \r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0171234000035266200112\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0110599530000027947497\"\r\n            }\r\n        }\r\n    },\r\n    \"administrator\": {\r\n        \"name\": \"LI\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/administratorCore/v1/reversal/payments/passive",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"administratorCore",
+						"v1",
+						"reversal",
+						"payments",
+						"passive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TRF 2 - LINK Copy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781123\",\r\n        \"authorization_code\": \"0VA147\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 100,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\"\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"35366170\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen puente\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino usuario de LINK\",\r\n            \"identification_number\": \"20338030739\",\r\n            \"account\": {\r\n                \"cbu\": \"0110599530000027947497\"\r\n            }\r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen usuario\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino usuario de LINK\",\r\n            \"identification_number\": \"20338030739\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170118\"\r\n            }\r\n        }\r\n    },\r\n        \"administrator\": {\r\n        \"name\": \"LI\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/administratorCore/v1/instant_payment/payments",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"administratorCore",
+						"v1",
+						"instant_payment",
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TRF 1 - LINK",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781123\",\r\n        \"authorization_code\": \"0VA303\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 0,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\"\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"35366170\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen puente\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170018\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino usuario de LINK\",\r\n            \"identification_number\": \"20338030739\",\r\n            \"account\": {\r\n                \"cbu\": \"0110599530000027947497\"\r\n            }\r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen usuario\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170018\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino usuario de LINK\",\r\n            \"identification_number\": \"20338030739\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\"\r\n            }\r\n        }\r\n    },\r\n        \"administrator\": {\r\n        \"name\": \"LI\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/administratorCore/v1/payments/passive",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"administratorCore",
+						"v1",
+						"payments",
+						"passive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REV TRF 1 - LINK",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781123\",\r\n        \"authorization_code\": \"0VAC59\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 150,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\"\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"35366170\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen puente\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170018\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino usuario de LINK\",\r\n            \"identification_number\": \"20338030739\",\r\n            \"account\": {\r\n                \"cbu\": \"0110599530000027947497\"\r\n            }\r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen usuario\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170018\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino usuario de LINK\",\r\n            \"identification_number\": \"20338030739\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\"\r\n            }\r\n        }\r\n    },\r\n        \"administrator\": {\r\n        \"name\": \"LI\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/administratorCore/v1/instant_payment/payments",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"administratorCore",
+						"v1",
+						"instant_payment",
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TRF 1 - FNCS OFF - ICBC OFF",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781442\",\r\n        \"authorization_code\": \"0B1113\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 1000,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\"\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"35266200\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"27000106106\",\r\n            \"account\": {\r\n                \"cbu\": \"0171234000035266200116\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0150542902000105011507\"\r\n            }\r\n            \r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0171234000035266200116\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\"\r\n            }\r\n        }\r\n    },\r\n    \"administrator\": {\r\n        \"name\": \"PR\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/administratorCore/v1/payments/passive",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"administratorCore",
+						"v1",
+						"payments",
+						"passive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REV TRF 1 - FNCS OFF - ICBC OFF",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781442\",\r\n        \"authorization_code\": \"0B1112\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 1000,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\"\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"35266200\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"27000106106\",\r\n            \"account\": {\r\n                \"cbu\": \"0171234000035266200116\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0150542902000105011507\"\r\n            }\r\n            \r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0171234000035266200116\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\"\r\n            }\r\n        }\r\n    },\r\n    \"administrator\": {\r\n        \"name\": \"PR\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/reversal",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"reversal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TRF 1 - IBAY ON - FNCS OFF",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781442\",\r\n        \"authorization_code\": \"0BAUI3\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 25,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\"\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"6066749\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"27000106106\",\r\n            \"account\": {\r\n                \"cbu\": \"2590046210000078910066\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0171234000035266200116\"\r\n            }\r\n            \r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"2590046210000078910066\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\"\r\n            }\r\n        }\r\n    },\r\n    \"administrator\": {\r\n        \"name\": \"PR\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/administratorCore/v1/instant_payment/payments",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"administratorCore",
+						"v1",
+						"instant_payment",
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REV TRF 1 - IBAY ON - FNCS OFF",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781442\",\r\n        \"authorization_code\": \"0BAUI3\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 25,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\"\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"10004689\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"27000106106\",\r\n            \"account\": {\r\n                \"cbu\": \"0150542902000105011507\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0171234000035266200116\"\r\n            }\r\n            \r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0150542902000105011507\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\"\r\n            }\r\n        }\r\n    },\r\n    \"administrator\": {\r\n        \"name\": \"PR\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/reversal",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"reversal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TRF 2 - FNCS OFF - IBAY ON",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781442\",\r\n        \"authorization_code\": \"0BA119\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 25,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\"\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"6066749\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"27000106106\",\r\n            \"account\": {\r\n                \"cbu\": \"0171234000035266200116\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"2590046210000078910066\"\r\n            }\r\n            \r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"2590046210000078900000\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"2590046210000078910066\"\r\n            }\r\n        }\r\n    },\r\n    \"administrator\": {\r\n        \"name\": \"PR\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/administratorCore/v1/instant_payment/payments",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"administratorCore",
+						"v1",
+						"instant_payment",
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REV TRF 2 - FNCS OFF - IBAY ON",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781442\",\r\n        \"authorization_code\": \"0BA264\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 100,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\"\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"35266170\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"27000106106\",\r\n            \"account\": {\r\n                \"cbu\": \"0171234000035266200116\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170018\"\r\n            }\r\n            \r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"2590046210000078900000\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170018\"\r\n            }\r\n        }\r\n    },\r\n    \"administrator\": {\r\n        \"name\": \"PR\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/administratorCore/v1/reversal/payments/passive",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"administratorCore",
+						"v1",
+						"reversal",
+						"payments",
+						"passive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API UPF Transferencia Copy 3",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781442\",\r\n        \"authorization_code\": \"0BAE53\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 1,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\"\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"10004689\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"27000106106\",\r\n            \"account\": {\r\n                \"cbu\": \"0150542902000105011507\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0150542902000105011507\"\r\n            }\r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0150542902000105011507\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170018\"\r\n            }\r\n        }\r\n    },\r\n    \"administrator\": {\r\n        \"name\": \"PR\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.76.52:9081/administratorCore/v1/instant_payment/payments",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"76",
+						"52"
+					],
+					"port": "9081",
+					"path": [
+						"administratorCore",
+						"v1",
+						"instant_payment",
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Prisma Transferencia Reversos",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.unset(\"otp\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "tokenType",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "JJWPgAeerDYaUmkMB0Y3JN9kldCV",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781442\",\r\n        \"authorization_code\": \"0BAC53\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 1,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\"\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"asdasd\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"35366170\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"27000106106\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170018\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0171234000035266200116\"\r\n            }\r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170018\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\"\r\n            }\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-qa.prismamediosdepago.com/v1/processor/transfer/reversal/payments/passive",
+					"protocol": "https",
+					"host": [
+						"api-qa",
+						"prismamediosdepago",
+						"com"
+					],
+					"path": [
+						"v1",
+						"processor",
+						"transfer",
+						"reversal",
+						"payments",
+						"passive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Prisma Transferencia Copy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.unset(\"otp\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "BGsGoj3VsTtAukW85Xp4aGW8UGWSLkkG",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "apikey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781445\",\r\n        \"authorization_code\": \"0BA4C3\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 1350,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\",\r\n        \"otp\": \"{{otp}}\"\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"Nacho\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"12345678901234567890\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0720002100001904447203\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0150532001000142547361\"\r\n            }\r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0150532001000142547361\"\r\n            }\r\n        }\r\n    },\r\n    \"administrator\": {\r\n        \"name\": \"PR\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-qa.prismamediosdepago.com/v1/processor/transfer/payments/passive",
+					"protocol": "https",
+					"host": [
+						"api-qa",
+						"prismamediosdepago",
+						"com"
+					],
+					"path": [
+						"v1",
+						"processor",
+						"transfer",
+						"payments",
+						"passive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Prisma Consulta de Titularidad DESA Banelco",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.unset(\"otp\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3Umv1kSwrLyecYPNOoJDvggAMcvC",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transaction\": {\r\n        \"reference_number\": \"228957781445\",\r\n        \"authorization_code\": \"0BA4C3\",\r\n        \"qr_id\": \"123456789ABCDEF\",\r\n        \"amount\": {\r\n            \"value\": 1350,\r\n            \"currency\": \"ARS\"\r\n        },\r\n        \"type\": \"PCT\",\r\n        \"otp\": \"{{otp}}\"\r\n    },\r\n    \"payer\": {\r\n        \"name\": \"Nacho\",\r\n        \"document\": {\r\n            \"type\": \"DNI\",\r\n            \"number\": \"12345678901234567890\"\r\n        },\r\n        \"wallet\": {\r\n            \"name\": \"TODOP\",\r\n            \"cuit\": \"20300333333\"\r\n        }\r\n    },\r\n    \"acquirer\": {\r\n        \"name\": \"TODOP\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"merchant\": {\r\n        \"soft_descriptor\": \"GARBARINO\",\r\n        \"cuit\": \"20300333333\"\r\n    },\r\n    \"accounts\": {\r\n        \"real_account_from\": {\r\n            \"name\": \"cuenta origen real\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0720002100001904447203\"\r\n            }\r\n        },\r\n        \"real_account_to\": {\r\n            \"name\": \"cuenta destino real\",\r\n            \"identification_number\": \"20926215613\",\r\n            \"account\": {\r\n                \"cbu\": \"0150532001000142547361\"\r\n            }\r\n        },\r\n        \"informed_account_from\": {\r\n            \"name\": \"cuenta origen informada\",\r\n            \"identification_number\": \"20374819608\",\r\n            \"account\": {\r\n                \"cbu\": \"0725555700035366170117\"\r\n            }\r\n        },\r\n        \"informed_account_to\": {\r\n            \"name\": \"cuenta destino informada\",\r\n            \"identification_number\": \"20353661702\",\r\n            \"account\": {\r\n                \"cbu\": \"0150532001000142547361\"\r\n            }\r\n        }\r\n    },\r\n    \"administrator\": {\r\n        \"name\": \"PR\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-dev.prismamediosdepago.com/v1/processor/instant_payment/holder_validation",
+					"protocol": "https",
+					"host": [
+						"api-dev",
+						"prismamediosdepago",
+						"com"
+					],
+					"path": [
+						"v1",
+						"processor",
+						"instant_payment",
+						"holder_validation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generar Token Bearer Consulta Titu",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "NT7SAHMiPUc6s0bA",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "BGsGoj3VsTtAukW85Xp4aGW8UGWSLkkG",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://api-qa.prismamediosdepago.com/v1/oauth/accesstoken?grant_type=client_credentials",
+					"protocol": "https",
+					"host": [
+						"api-qa",
+						"prismamediosdepago",
+						"com"
+					],
+					"path": [
+						"v1",
+						"oauth",
+						"accesstoken"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "variable_key",
+			"value": ""
+		}
+	]
+}

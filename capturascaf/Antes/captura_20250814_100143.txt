@@ -1,0 +1,179 @@
+=== CAPTURA 1 ===
+ BASE24-BASE  CARDHOLDER FILE          TES1  GLCA  25/08/14  10:01  01 OF 13
+
+         PAN: 4517690087218828                 MEMBER: 001    FIID: GLCA
+   CARD TYPE: E   (ELECTRON    )            CPF CLASS: 0    BRANCH: 123
+ CARD STATUS: 1   (ACTIVA)                  POFST/PVV: 999999999999
+ ATM RESTRINGIDOS:   (S/N)                   OFST/POS:
+
+                                CARD USAGE CONTROL
+
+                    ACTIVITY LIMITS                  ACTIVITY THIS PERIOD
+                TOTAL          OFFLINE             TOTAL           OFFLINE
+ CASH WDL:               0               0               0.00              0.00
+ CASH ADV:               0               0               0.00              0.00
+     AGGR:               0               0
+
+   DEMORA ATM:    SEQUENCE NUMBER:               RECH 60 BR:    0  EXPO:
+    CONTROL CVV:         ULT. EXTR. BRASIL:        (YYMMDD)   INHAB.DOLAR:
+
+           CARD USAGE CONTROL FIELDS ARE CONTINUED ON SCREEN 2
+ RECORD LAST CHANGED: 25/07/17  16:04   BY USER: 0001 , 30501253   ADD
+ *********************************** BASE24 **** RECORD ADDED: 25/07/17    VIRT
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                         F12 - HELP
+RECORD RETRIEVED FROM  $DUFFY.TES1DATA.CAFEGLCA                    EXP   0000
+
+=== CAPTURA 2 ===
+ BASE24-BASE  CARDHOLDER FILE          TES1  GLCA  25/08/14  10:01  02 OF 13
+
+         PAN: 4517690087218828                 MEMBER: 001    FIID: GLCA
+
+                           CARD USAGE CONTROL
+
+ BAD PIN TRIES:    0             EXPIRATION DATE (YYMM) : 2511
+ BAD POS TRIES: 8192  NO VID:    ULTIMO CAMBIO PIN ATM  :        (YYMMDD)
+ BAD DOC TRIES:    0  ALFA:   0  ULTIMO CAMBIO PIN POS  :        (YYMMDD)
+                                 OPERO BRASIL :   (S/N)
+ DATE FIRST USED: 000000   (YYMMDD)      LAST RESET DATE: 000000   (YYMMDD)
+
+ DATOS FILIATORIOS: F (CON DATOS FILIATORIOS Y SIN CLAVE HP) CLAVE ALFA:
+
+ TIPO DOC: 1 (DNI)      NRO DOC: 30501253          NRO PUERTA:
+
+ FECHA NAC: 000101 (YYMMDD) GENERO: 0  BIOMETRIA:   (S/E) DENU. :
+ ATC NUMBER :  8224         SECOND CARD ATC NUMBER:     0 TARJ. VIRTUAL: A
+ RECORD LAST CHANGED: 25/07/17  16:04   BY USER: 0001 , 30501253   ADD
+ *********************************** BASE24 **** RECORD ADDED: 25/07/17    VIRT
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                         F12 - HELP
+
+=== CAPTURA 3 ===
+ BASE24-BASE  CARDHOLDER FILE          TES1  GLCA  25/08/14  10:01  03 OF 13
+
+         PAN: 4517690087218828                 MEMBER: 001    FIID: GLCA
+
+ NUMBER OF ACCOUNTS: 03
+                                                 ACH RTTN/                 ACH-
+ TYPE             ACCOUNT NUMBER            ORIG DESCRIPTION STATUS   PREF IND
+ 02 (F-CHECK)     100011111978014              0            2 (DEPOSITO)
+ 02 (F-CHECK)     100011111978015              0            2 (DEPOSITO)
+ 02 (F-CHECK)     100011111978016              0            2 (DEPOSITO)
+
+ RECORD LAST CHANGED: 25/07/17  16:04   BY USER: 0001 , 30501253   ADD
+ *********************************** BASE24 **** RECORD ADDED: 25/07/17    VIRT
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                         F12 - HELP
+
+=== CAPTURA 4 ===
+ BASE24-BASE  CARDHOLDER FILE          TES1  GLCA  25/08/14  10:01  04 OF 13
+
+         PAN: 4517690087218828                 MEMBER: 001    FIID: GLCA
+
+ NUMBER OF ACCOUNTS: 03
+                                                 ACH RTTN/                 ACH-
+ TYPE             ACCOUNT NUMBER            ORIG DESCRIPTION STATUS   PREF IND
+
+ RECORD LAST CHANGED: 25/07/17  16:04   BY USER: 0001 , 30501253   ADD
+ *********************************** BASE24 **** RECORD ADDED: 25/07/17    VIRT
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                         F12 - HELP
+
+=== CAPTURA 5 ===
+ BASE24-      CARDHOLDER FILE          TES1  GLCA  25/08/14  10:01  05 OF 13
+
+         PAN: 4517690087218828                 MEMBER: 001    FIID: GLCA
+                           ATM CARD USAGE CONTROL
+
+                    ACTIVITY LIMITS                  ACTIVITY THIS PERIOD
+                TOTAL          OFFLINE             TOTAL            OFFLINE
+ CASH WDL:               0               0               0.00              0.00
+ CASH ADV:               0               0               0.00              0.00
+      PES:               0               0               0.00
+     AGGR:               0               0
+ EX S/TRJ:               0               0               0.00
+ MAXIMUM DEPOSIT CREDIT AMT:         0  NUMBER OF DEPOSIT CREDITS:         0
+ ACUMULADO EMPRESAS RIESGO:              0.00 ACUM EXT S/TARJ:                0
+  AMOUNT OF DEPOSIT CREDIT:         0             LIMITE VIP:                 0
+ ACUMULADO DE TRANS. A CBU:              0.00  VTO LIMITE VIP:  74/12/31  00:00
+ TIMES USED PER PERIOD LIMIT:  999     ISSUER TXN PROFILE:
+      TIMES USED THIS PERIOD:    0
+   (YYMMDD) LAST USED DATE:            ULTIMA EXTRACCION/CONSULTA:
+ RECORD LAST CHANGED: 25/07/17  16:04   BY USER: 0001 , 30501253   ADD
+ *********************************** BASE24 **** RECORD ADDED: 25/07/17    VIRT
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+   F8 - REMOVE HOLD      F12 - HELP
+
+=== CAPTURA 6 ===
+ BASE24-      CARDHOLDER FILE          TES1  GLCA  25/08/14  10:01  06 OF 13
+
+         PAN: 4517690087218828                 MEMBER: 001    FIID: GLCA
+
+                           POS CARD USAGE CONTROL
+
+                    ACTIVITY LIMITS                  ACTIVITY THIS PERIOD
+                TOTAL          OFFLINE             TOTAL            OFFLINE
+ CASH WDL:               0               0               0.00              0.00
+ CASH ADV:               0               0               0.00              0.00
+     AGGR:               0               0
+ PURCHASE:               0               0               0.00              0.00
+   REFUND:               0               0               0.00              0.00
+ CASHBACK:                                               0.00
+ ISSUER TXN PROFILE:
+ MONTO ULT. TRANS:              0.00   CPRAS EXTERIOR:
+ NUMBER OF REFUNDS THIS PERIOD:    0          TRAN TC:
+        TIMES USED THIS PERIOD:    0      REASON CODE:    (*******************)
+   TIMES USED PER PERIOD LIMIT:  999   LAST USED DATE:
+ RECORD LAST CHANGED: 25/07/17  16:04   BY USER: 0001 , 30501253   ADD
+ *********************************** BASE24 **** RECORD ADDED: 25/07/17    VIRT
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+   F8 - REMOVE HOLD      F12 - HELP
+
+=== CAPTURA 7 ===
+ BASE24-      CARDHOLDER FILE          TES1  GLCA  25/08/14  10:01  07 OF 13
+
+         PAN: 4517690087218828                 MEMBER: 001    FIID: GLCA
+
+   CATEGORIA PRESTAMO:                  PAM:      UR:
+   SEGURO HABILITADO:  1    2    3    4    5    6     TIPO MENU:
+   SEGURO TIENE:       1    2    3    4    5    6     DATOS BANNER
+   DATOS COTIZACION        DATOS FACTURACION          BANNER-ID:
+   ORGANIZACION:           FECHA CONVERSION: 000000   FECHA INICIO:
+   SEGMENTO:               ORIGEN:                    FECHA FIN   :
+   CONTROLA FRAUDE:   (S/N)
+   TRACK1:                              MOTIVO ALTA:   (*******************)
+
+   TRACK1 RE-EMISION:                   VIGENCIA:   ********
+
+   DATOS A SOLICITAR:    (**************)  VERIF. DATOS:   (********)   EXP:
+
+ RECORD LAST CHANGED: 25/07/17  16:04   BY USER: 0001 , 30501253   ADD
+ *********************************** BASE24 **** RECORD ADDED: 25/07/17    VIRT
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                         F12 - HELP
+
+=== CAPTURA 8 ===
+ BASE24-EMV   CARDHOLDER FILE          TES1  GLCA  25/08/14  10:01  13 OF 13
+
+         PAN: 4517690087218828                 MEMBER: 001    FIID: GLCA
+
+                               EMV INFORMATION
+           ATC LIMIT:    0                BAD CAP TOKEN OVERRIDE FLAG:
+      EMV IAD FORMAT:                       STATUS CHECK ACTION INDEX:   (1-4)
+ SCRIPT TEMPLATE TAG:                               SCRIPT MAC LENGTH:
+         SEND CARD BLOCK:                               SEND PUT DATA:
+                                      LOWER CONSECUTIVE OFFLINE LIMIT:   0
+        SEND PIN UNBLOCK:                             ULTIMA TRANSAC EMV
+         SEND PIN CHANGE:                              CAJERO:
+ ONLINE/OFFLINE PIN SYNC:                              LECTURA:
+                                                       TERMINAL :   TARJETA:
+                     ATC     CAP ATC      BAD CAP
+                   NUMBER    NUMBER    TOKEN COUNTER    CAP APSN    CAP DKI
+   PRIMARY CARD:        0      8192         8192
+ SECONDARY CARD:     8192      8192            0
+
+ RECORD LAST CHANGED: 25/07/17  16:04   BY USER: 0001 , 30501253   ADD
+ *********************************** BASE24 **** RECORD ADDED: 25/07/17    VIRT
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                         F12 - HELP
+
