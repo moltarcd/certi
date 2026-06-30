@@ -1,8 +1,0 @@
-{
-  "dev": {
-    "Sa_Wallet_Transaccion": "https://api-dev.example.com/v1"
-  },
-  "sa": {
-    "Sa_Wallet_Transaccion": "https://api-sa.example.com/v1"
-  }
-}
