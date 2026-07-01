@@ -4,10 +4,9 @@ import copy
 import sys
 from datetime import datetime
 from collections import defaultdict
+from responses.debit_card_management_test import BASE_PAYLOAD, TEST_CASES
 from reporter import APITestReporter, TestCaseResult
 
-# IMPORTACIÓN DE TEMPLATES (MANTIENE EL SCRIPT LIMPIO)
-from responses.debit_card_management_test import BASE_PAYLOAD, TEST_CASES
 
 # ======================================================
 # CONFIGURACIÓN
