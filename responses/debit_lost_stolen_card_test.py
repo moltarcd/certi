@@ -143,7 +143,7 @@ TEST_CASES = [
         "descripcion": "Cliente con múltiples tarjetas donde sólo una coincide con BIN + últimos 4",
         "expected_code": "200",
         "expected_response": "{'ok': {'code': 'string', 'description': 'string', 'denunciation_code': 'string'}}",
-        "modificador": lambda p: p  # Requiere precondición de múltiples tarjetas en ambiente/mock
+        "modificador": lambda p: p  
     },
     {
         "id": "C200-11",
