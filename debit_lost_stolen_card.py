@@ -19,7 +19,7 @@ URL = "https://api-qa.newpay.com.ar/v1/debit_lost_stolen_card_reporting/?bank_co
 
 HEADERS_BASE = {
     "Content-Type": "application/json",
-    "Authorization": "Bearer d3bb616cdc6d3d2bac8ed39a3276",
+    "Authorization": "Bearer bf09a57d4a4736b6c4876c3e2656",
     "x-apip-client-id": "test",
     "x-apip-partner-id": "test",
     "x-apip-cuit": "20304050607"

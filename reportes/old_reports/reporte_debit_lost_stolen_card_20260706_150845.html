@@ -1,0 +1,2188 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <style>
+                body { font-family: Arial; font-size: 13px; }
+                table { border-collapse: collapse; width: 100%; margin-bottom: 25px; }
+                th, td { border: 1px solid #ccc; padding: 6px; vertical-align: top; }
+                th { background: #2c3e50; color: white; }
+                .ok { background: #c8e6c9; }
+                .error { background: #ffcdd2; }
+                .header { display:flex; justify-content:space-between; align-items:center; }
+                pre { 
+                    white-space: pre-wrap;
+                    word-wrap: break-word;
+                    margin: 0;
+                    font-family: 'Courier New', monospace;
+                    font-size: 11px;
+                }
+                h3 { 
+                    background: #f5f5f5;
+                    padding: 10px;
+                    border-left: 4px solid #2c3e50;
+                    margin-top: 20px;
+                }
+            </style>
+        </head>
+        <body>
+
+        <div class="header">
+            <h1>Reporte QA – Account Linking</h1>
+            <img src="newBrand.svg" height="50">
+        </div>
+
+        <p><b>Fecha:</b> 2026-07-06 15:08:45.835863</p>
+        <p><b>Ambiente:</b> CERTIFICACIÓN</p>
+        <p><b>Endpoint:</b> https://api-qa.newpay.com.ar/v1/debit_lost_stolen_card_reporting/?bank_code=007</p>
+
+        <h2>Resumen Ejecutivo</h2>
+
+        <table>
+            <tr><th>Total</th><th>OK</th><th>Error</th><th>% Éxito</th></tr>
+            <tr>
+                <td>86</td>
+                <td style="background:#c8e6c9">43</td>
+                <td style="background:#ffcdd2">43</td>
+                <td>50.0%</td>
+            </tr>
+        </table>
+
+        <h3>Resultado por Grupo</h3>
+        <table>
+            <tr><th>Grupo</th><th>Nombre</th><th>OK</th><th>Error</th><th>Estado</th></tr>
+        
+            <tr style="background:#ffcdd2">
+                <td>C200</td>
+                <td>CASOS ESPECIALES</td>
+                <td>0</td>
+                <td>23</td>
+                <td>FAIL</td>
+            </tr>
+            
+            <tr style="background:#c8e6c9">
+                <td>C400</td>
+                <td>CASOS DE VALIDACIÓN</td>
+                <td>39</td>
+                <td>0</td>
+                <td>OK</td>
+            </tr>
+            
+            <tr style="background:#c8e6c9">
+                <td>C401</td>
+                <td>GRUPO C401</td>
+                <td>4</td>
+                <td>0</td>
+                <td>OK</td>
+            </tr>
+            
+            <tr style="background:#ffcdd2">
+                <td>—C401</td>
+                <td>GRUPO —C401</td>
+                <td>0</td>
+                <td>1</td>
+                <td>FAIL</td>
+            </tr>
+            
+            <tr style="background:#ffcdd2">
+                <td>C404</td>
+                <td>GRUPO C404</td>
+                <td>0</td>
+                <td>6</td>
+                <td>FAIL</td>
+            </tr>
+            
+            <tr style="background:#ffcdd2">
+                <td>C500</td>
+                <td>GRUPO C500</td>
+                <td>0</td>
+                <td>13</td>
+                <td>FAIL</td>
+            </tr>
+            
+        </table>
+        <hr>
+
+        <h2>Resultados Detallados</h2>
+
+        
+            <h3>C200 – CASOS ESPECIALES</h3>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Requisito</th>
+                    <th>Descripción</th>
+                    <th>Payload Enviado</th>
+                    <th>Esperado</th>
+                    <th>Obtenido</th>
+                    <th>HTTP</th>
+                    <th>Respuesta</th>
+                </tr>
+                
+                <tr class="error">
+                    <td>C200-01</td>
+                    <td>Happy Path / Estado Tarjeta</td>
+                    <td>Denunciar tarjeta Activa (estado=1) por Extravío (reason=2)</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>200</td>
+                    <td>CONNECTION_ERROR</td>
+                    <td>0</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">HTTPSConnectionPool(host='api-qa.newpay.com.ar', port=443): Read timed out. (read timeout=3.0)</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C200-02</td>
+                    <td>Happy Path / Estado Tarjeta</td>
+                    <td>Denunciar tarjeta Activa (estado=1) por Robo (reason=3)</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 3
+}</pre></td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C200-03</td>
+                    <td>Happy Path / Estado Tarjeta</td>
+                    <td>Denunciar tarjeta Activa (estado=1) por Fraude (reason=6)</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C200-04</td>
+                    <td>Estado Tarjeta</td>
+                    <td>Denunciar tarjeta Restringida Extracciones (estado=4) por Extravío</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C200-05</td>
+                    <td>Estado Tarjeta</td>
+                    <td>Denunciar tarjeta Restringida Extracciones (estado=4) por Robo</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 3
+}</pre></td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C200-06</td>
+                    <td>Estado Tarjeta</td>
+                    <td>Denunciar tarjeta Restringida Extracciones (estado=4) por Fraude</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C200-07</td>
+                    <td>Estado Tarjeta</td>
+                    <td>Denunciar tarjeta Cerrada (estado=9) por Extravío</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C200-08</td>
+                    <td>Estado Tarjeta</td>
+                    <td>Denunciar tarjeta Cerrada (estado=9) por Robo</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 3
+}</pre></td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C200-09</td>
+                    <td>Estado Tarjeta</td>
+                    <td>Denunciar tarjeta Cerrada (estado=9) por Fraude</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 6
+}</pre></td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C200-10</td>
+                    <td>Coincidencia Tarjeta</td>
+                    <td>Cliente con múltiples tarjetas donde sólo una coincide con BIN + últimos 4</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C200-11</td>
+                    <td>Longitud BIN</td>
+                    <td>BIN de 6 dígitos válido</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C200-12</td>
+                    <td>Longitud BIN</td>
+                    <td>BIN de 8 dígitos válido</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "45175812",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"CRM-INVALID_CARD","title":"Invalid Card"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C200-13</td>
+                    <td>Flujo Desacoplado</td>
+                    <td>Cliente sin usuario UDF (Tarjeta existente en base propia)</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C200-14</td>
+                    <td>Tipos de documento válidos</td>
+                    <td>document_type=DNI</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C200-15</td>
+                    <td>Tipos de documento válidos</td>
+                    <td>document_type=CI</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "CI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"CRM-INVALID_CARD","title":"Invalid Card"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C200-16</td>
+                    <td>Tipos de documento válidos</td>
+                    <td>document_type=PAS</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "PAS",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: At this time the selected transaction cannot be made. The data entered for document_type is incorrect."}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C200-17</td>
+                    <td>Tipos de documento válidos</td>
+                    <td>document_type=LC</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "LC",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"CRM-INVALID_CARD","title":"Invalid Card"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C200-18</td>
+                    <td>Tipos de documento válidos</td>
+                    <td>document_type=LE</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "LE",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"CRM-INVALID_CARD","title":"Invalid Card"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C200-19</td>
+                    <td>Tipos de documento válidos</td>
+                    <td>document_type=CUIT</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "CUIT",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"CRM-INVALID_CARD","title":"Invalid Card"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C200-20</td>
+                    <td>Tipos de documento válidos</td>
+                    <td>document_type=CUIL</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "CUIL",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: At this time the selected transaction cannot be made. The data entered for document_type is incorrect."}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C200-21</td>
+                    <td>Género válido</td>
+                    <td>gender=M</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C200-22</td>
+                    <td>Género válido</td>
+                    <td>gender=F</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "F"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"CRM-INVALID_CARD","title":"Invalid Card"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C200-23</td>
+                    <td>Género válido</td>
+                    <td>gender=X</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "X"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"CRM-INVALID_CARD","title":"Invalid Card"}]}</pre></td>
+                </tr>
+                
+            </table>
+            
+            <h3>C400 – CASOS DE VALIDACIÓN</h3>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Requisito</th>
+                    <th>Descripción</th>
+                    <th>Payload Enviado</th>
+                    <th>Esperado</th>
+                    <th>Obtenido</th>
+                    <th>HTTP</th>
+                    <th>Respuesta</th>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-01</td>
+                    <td>Error de negocio</td>
+                    <td>Intentar denunciar tarjeta ya denunciada estado=2 (Extraviada)</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-02</td>
+                    <td>Error de negocio</td>
+                    <td>Intentar denunciar tarjeta ya denunciada estado=3 (Robada)</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-03</td>
+                    <td>Error de negocio</td>
+                    <td>Intentar denunciar tarjeta ya denunciada estado=6 (Inhabilitada)</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-04</td>
+                    <td>Error de negocio</td>
+                    <td>Intentar denunciar tarjeta Apagada estado=7</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-05</td>
+                    <td>Error de negocio</td>
+                    <td>Intentar denunciar tarjeta Inactiva estado=0</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-06</td>
+                    <td>Error de negocio</td>
+                    <td>Reintentar denunciar una tarjeta ya denunciada previamente por la API</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-07</td>
+                    <td>Campo inválido</td>
+                    <td>reason=1</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 1
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"At this time the selected transaction cannot be made. The data entered for Reason is incorrect."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-08</td>
+                    <td>Campo inválido</td>
+                    <td>reason=4</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 4
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"At this time the selected transaction cannot be made. The data entered for Reason is incorrect."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-09</td>
+                    <td>Campo inválido</td>
+                    <td>reason=5</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 5
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"At this time the selected transaction cannot be made. The data entered for Reason is incorrect."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-10</td>
+                    <td>Campo inválido</td>
+                    <td>reason=99</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 99
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"At this time the selected transaction cannot be made. The data entered for Reason is incorrect."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-11</td>
+                    <td>Campo inválido</td>
+                    <td>reason=-1</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": -1
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"At this time the selected transaction cannot be made. The data entered for Reason is incorrect."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-12</td>
+                    <td>Formato inválido</td>
+                    <td>reason="A"</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": "A"
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: At this time the selected transaction cannot be made. The data entered for reason is incorrect."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-13</td>
+                    <td>Campo requerido</td>
+                    <td>reason nulo</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": null
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: Reason is required."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-14</td>
+                    <td>Campo requerido</td>
+                    <td>bank_code ausente</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"bank_code is required"}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-15</td>
+                    <td>Longitud inválida</td>
+                    <td>bank_code=12</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-16</td>
+                    <td>Longitud inválida</td>
+                    <td>bank_code=1234</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-17</td>
+                    <td>Formato inválido</td>
+                    <td>bank_code=ABC</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-18</td>
+                    <td>Campo requerido</td>
+                    <td>client ausente</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: Client is required."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-19</td>
+                    <td>Campo requerido</td>
+                    <td>document_type ausente</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: Document type is required."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-20</td>
+                    <td>Formato inválido</td>
+                    <td>document_type=ABC</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "ABC",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: At this time the selected transaction cannot be made. The data entered for document_type is incorrect."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-21</td>
+                    <td>Campo requerido</td>
+                    <td>document_number ausente</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: Document number is required."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-22</td>
+                    <td>Longitud inválida</td>
+                    <td>document_number=1234</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 1234,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: At this time the selected transaction cannot be made. The data entered for document_number is incorrect."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-23</td>
+                    <td>Longitud inválida</td>
+                    <td>document_number=1234567890123</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 1234567890123,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: At this time the selected transaction cannot be made. The data entered for document_number is incorrect."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-24</td>
+                    <td>Formato inválido</td>
+                    <td>document_number="ABC123"</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": "ABC123",
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: At this time the selected transaction cannot be made. The data entered for document_number is incorrect."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-25</td>
+                    <td>Campo requerido</td>
+                    <td>gender ausente</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: Gender is required."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-26</td>
+                    <td>Formato inválido</td>
+                    <td>gender=Z</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "Z"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: Validation Failed: gender field value must be F , M or X."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-27</td>
+                    <td>Campo requerido</td>
+                    <td>card_details ausente</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: Card Details is required."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-28</td>
+                    <td>Campo requerido</td>
+                    <td>bin ausente</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: bin is required."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-29</td>
+                    <td>Longitud inválida</td>
+                    <td>bin=12345</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "12345",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: At this time the selected transaction cannot be made. The data entered for bin is incorrect."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-30</td>
+                    <td>Longitud inválida</td>
+                    <td>bin=1234567</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "1234567",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: At this time the selected transaction cannot be made. The data entered for bin is incorrect."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-31</td>
+                    <td>Formato inválido</td>
+                    <td>bin=ABCDEF</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "ABCDEF",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: At this time the selected transaction cannot be made. The data entered for bin is incorrect."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-32</td>
+                    <td>Campo requerido</td>
+                    <td>last_four_digits ausente</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: last_four_digits is required."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-33</td>
+                    <td>Longitud inválida</td>
+                    <td>last_four_digits=123</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "123"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: At this time the selected transaction cannot be made. The data entered for last_four_digits is incorrect."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-34</td>
+                    <td>Longitud inválida</td>
+                    <td>last_four_digits=12345</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "12345"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: At this time the selected transaction cannot be made. The data entered for last_four_digits is incorrect."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-35</td>
+                    <td>Formato inválido</td>
+                    <td>last_four_digits=ABCD</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "ABCD"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: At this time the selected transaction cannot be made. The data entered for last_four_digits is incorrect."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-36</td>
+                    <td>Campo requerido</td>
+                    <td>ip ausente</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: IP is required."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-37</td>
+                    <td>Formato inválido</td>
+                    <td>ip=999.999</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "999.999",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: At this time the selected transaction cannot be made. The data entered for IP is incorrect."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-38</td>
+                    <td>Longitud inválida</td>
+                    <td>ip=999.999.999.999.999</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "999.999.999.999.999",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Validation Failed: At this time the selected transaction cannot be made. The data entered for IP is incorrect."}]}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C400-39</td>
+                    <td>Atributos extra</td>
+                    <td>Request contiene campos no definidos (ejemplo afip.cuit)</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2,
+  "afip": {
+    "cuit": "20123456789"
+  }
+}</pre></td>
+                    <td>DTC-400</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Bad Request: Field afip is not allowed."}]}</pre></td>
+                </tr>
+                
+            </table>
+            
+            <h3>C401 – GRUPO C401</h3>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Requisito</th>
+                    <th>Descripción</th>
+                    <th>Payload Enviado</th>
+                    <th>Esperado</th>
+                    <th>Obtenido</th>
+                    <th>HTTP</th>
+                    <th>Respuesta</th>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C401-01</td>
+                    <td>Autenticación</td>
+                    <td>Token ausente</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>APIM-401</td>
+                    <td>APIM-401</td>
+                    <td>401</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+ "errors": [{
+ "status": "401",
+ "code": "APIM-401",
+ "title": "Unauthorized" }]
+}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C401-02</td>
+                    <td>Autenticación</td>
+                    <td>Token inválido</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>APIM-401</td>
+                    <td>APIM-401</td>
+                    <td>401</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+ "errors": [{
+ "status": "401",
+ "code": "APIM-401",
+ "title": "Unauthorized" }]
+}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C401-03</td>
+                    <td>Autenticación</td>
+                    <td>OAuth expirado</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>APIM-401</td>
+                    <td>APIM-401</td>
+                    <td>401</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+ "errors": [{
+ "status": "401",
+ "code": "APIM-401",
+ "title": "Unauthorized" }]
+}</pre></td>
+                </tr>
+                
+                <tr class="ok">
+                    <td>C401-04</td>
+                    <td>Autenticación</td>
+                    <td>API Key inválida</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>APIM-401</td>
+                    <td>APIM-401</td>
+                    <td>401</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+ "errors": [{
+ "status": "401",
+ "code": "APIM-401",
+ "title": "Unauthorized" }]
+}</pre></td>
+                </tr>
+                
+            </table>
+            
+            <h3>—C401 – GRUPO —C401</h3>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Requisito</th>
+                    <th>Descripción</th>
+                    <th>Payload Enviado</th>
+                    <th>Esperado</th>
+                    <th>Obtenido</th>
+                    <th>HTTP</th>
+                    <th>Respuesta</th>
+                </tr>
+                
+                <tr class="error">
+                    <td>—C401-05</td>
+                    <td>Autenticación</td>
+                    <td>x-apip-cuit ausente</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>APIM-401</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+            </table>
+            
+            <h3>C404 – GRUPO C404</h3>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Requisito</th>
+                    <th>Descripción</th>
+                    <th>Payload Enviado</th>
+                    <th>Esperado</th>
+                    <th>Obtenido</th>
+                    <th>HTTP</th>
+                    <th>Respuesta</th>
+                </tr>
+                
+                <tr class="error">
+                    <td>C404-01</td>
+                    <td>Recurso no encontrado</td>
+                    <td>La tarjeta no pertenece al cliente (B50)</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 99999999,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-404</td>
+                    <td>CRM-INVALID_CARD</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"CRM-INVALID_CARD","title":"Invalid Card"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C404-02</td>
+                    <td>Recurso no encontrado</td>
+                    <td>BIN válido pero de otra tarjeta</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "444444",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-404</td>
+                    <td>CRM-INVALID_CARD</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"CRM-INVALID_CARD","title":"Invalid Card"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C404-03</td>
+                    <td>Recurso no encontrado</td>
+                    <td>Ultimos 4 válidos pero de otra tarjeta</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "1111"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-404</td>
+                    <td>CRM-INVALID_CARD</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"CRM-INVALID_CARD","title":"Invalid Card"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C404-04</td>
+                    <td>Recurso no encontrado</td>
+                    <td>Cliente sin tarjetas asociadas</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 11112222,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-404</td>
+                    <td>CRM-INVALID_CARD</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"CRM-INVALID_CARD","title":"Invalid Card"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C404-05</td>
+                    <td>Recurso no encontrado</td>
+                    <td>BIN=999999 y last_four_digits=0000 (tarjeta inexistente)</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "999999",
+    "last_four_digits": "0000"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-404</td>
+                    <td>CRM-INVALID_CARD</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"CRM-INVALID_CARD","title":"Invalid Card"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C404-06</td>
+                    <td>Recurso no encontrado</td>
+                    <td>No existe coincidencia entre BIN + últimos 4</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "9999"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-404</td>
+                    <td>CRM-INVALID_CARD</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"CRM-INVALID_CARD","title":"Invalid Card"}]}</pre></td>
+                </tr>
+                
+            </table>
+            
+            <h3>C500 – GRUPO C500</h3>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Requisito</th>
+                    <th>Descripción</th>
+                    <th>Payload Enviado</th>
+                    <th>Esperado</th>
+                    <th>Obtenido</th>
+                    <th>HTTP</th>
+                    <th>Respuesta</th>
+                </tr>
+                
+                <tr class="error">
+                    <td>C500-01</td>
+                    <td>Error de servidor</td>
+                    <td>Error B54 Base de Datos</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-DATA BASE ERROR</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C500-02</td>
+                    <td>Error de servidor</td>
+                    <td>Error A99 Formato Request</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-500</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C500-03</td>
+                    <td>Error de servidor</td>
+                    <td>Error al descifrar PAN</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-500</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C500-04</td>
+                    <td>Error de servidor</td>
+                    <td>Error al cifrar PAN</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-500</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C500-05</td>
+                    <td>Error de servidor</td>
+                    <td>Timeout Centro de Servicios</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-500</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C500-06</td>
+                    <td>Error de servidor</td>
+                    <td>Centro de Servicios caído</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-500</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C500-07</td>
+                    <td>Error de servidor</td>
+                    <td>Timeout Tandem</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-500</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C500-08</td>
+                    <td>Error de servidor</td>
+                    <td>Error Access Validation</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-500</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C500-09</td>
+                    <td>Error de servidor</td>
+                    <td>Código upstream no mapeado</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-500</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C500-10</td>
+                    <td>Error de servidor</td>
+                    <td>Error SQL durante consulta de tarjetas</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-500</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C500-11</td>
+                    <td>Error de servidor</td>
+                    <td>Error Secret Manager AES_KEY_DB</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-500</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C500-12</td>
+                    <td>Error de servidor</td>
+                    <td>Error Secret Manager AES_KEY_DCD</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-500</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+                <tr class="error">
+                    <td>C500-13</td>
+                    <td>Error de servidor</td>
+                    <td>Error armando ISO en Centro de Servicios</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{
+  "client": {
+    "document_type": "DNI",
+    "document_number": 13722583,
+    "gender": "M"
+  },
+  "card_details": {
+    "bin": "451758",
+    "last_four_digits": "0722"
+  },
+  "ip": "198.51.100.42",
+  "reason": 2
+}</pre></td>
+                    <td>DTC-500</td>
+                    <td>DTC-400</td>
+                    <td>400</td>
+                    <td><pre style="margin:0; font-size:11px; max-height:100px; overflow:auto;">{"errors":[{"status":"400","code":"DTC-400","title":"Card already reported"}]}</pre></td>
+                </tr>
+                
+            </table>
+            
+
+        </body>
+        </html>
+        

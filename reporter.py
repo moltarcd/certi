@@ -237,34 +237,63 @@ class APITestReporter:
             except:
                 document.add_paragraph(r_data['response'])
 
-            document.add_heading('Documentacion Tandem', level=3)
-            document.add_heading('Audit Tandem', level=4)
-            document.add_heading('Pantallas CBU', level=4)
-
+            document.add_heading('Documentación Tandem', level=3)
+            
+            document.add_heading('Audit Tandem', level=4)            
             tabla_pantallas = document.add_table(rows=1, cols=1)
             tabla_pantallas.style = 'Light Grid Accent 1'
             tabla_pantallas.autofit = False
             tabla_pantallas.columns[0].width = Inches(6)
-
             celda_pantallas = tabla_pantallas.cell(0, 0)
-            celda_pantallas.text = 'Agregar aquí las pantallas TAndem correspondientes si corresponde'
+            celda_pantallas.text = 'Agregar aquí las pantallas/logs correspondientes si aplica'
             for paragraph in celda_pantallas.paragraphs:
                 for run in paragraph.runs:
-                    run.font.name = 'Consolas'
+                    run.font.name = 'Courier New'
                     run.font.size = Pt(8)
                 paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
-
             document.add_paragraph('')
             
-            document.add_heading('Estado', level=3)
+            document.add_heading('Pantallas Base24', level=4)
+            tabla_pantallas = document.add_table(rows=1, cols=1)
+            tabla_pantallas.style = 'Light Grid Accent 1'
+            tabla_pantallas.autofit = False
+            tabla_pantallas.columns[0].width = Inches(6)
+            celda_pantallas = tabla_pantallas.cell(0, 0)
+            celda_pantallas.text = 'Agregar aquí las pantallas/logs correspondientes si aplica'
+            for paragraph in celda_pantallas.paragraphs:
+                for run in paragraph.runs:
+                    run.font.name = 'Courier New'
+                    run.font.size = Pt(8)
+                paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            document.add_paragraph('')
+            
+            document.add_heading('Log Centro de Servicios', level=3)            
+            tabla_pantallas = document.add_table(rows=1, cols=1)
+            tabla_pantallas.style = 'Light Grid Accent 1'
+            tabla_pantallas.autofit = False
+            tabla_pantallas.columns[0].width = Inches(6)
+            celda_pantallas = tabla_pantallas.cell(0, 0)
+            celda_pantallas.text = 'Agregar aquí las pantallas/logs correspondientes si aplica'
+            for paragraph in celda_pantallas.paragraphs:
+                for run in paragraph.runs:
+                    run.font.name = 'Courier New'
+                    run.font.size = Pt(8)
+                paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            document.add_paragraph('')
+            
+
+          ##  document.add_heading('Estado', level=3)  ## Estado como titulo ver como ponerlo en la misma liena
             estado = "OK" if r_data["es_exitoso"] else "FAIL"
             estado_paragraph = document.add_paragraph()
+            estado_paragraph.add_run("Estado: ")
             run = estado_paragraph.add_run(estado)
             if r_data["es_exitoso"]:
                 run.font.color.rgb = RGBColor(0, 128, 0)
             else:
                 run.font.color.rgb = RGBColor(255, 0, 0)
+
             run.bold = True
+
             
             document.add_heading('Observaciones', level=3)
 
