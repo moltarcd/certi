@@ -8,8 +8,6 @@ Este proyecto está desarrollado en Python y tiene como objetivo:
 - Generar Reportes Automatizados sobre el resultado de las pruebas.
 
 
-
-
 ---
 
 ## Requisitos
@@ -107,4 +105,4 @@ git push origin master
 
 ## Autor
 
-Equipo de Desarrollo - TecnoSoftware
+Equipo de Desarrollo - APIS BAnking

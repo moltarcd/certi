@@ -19,7 +19,7 @@ URL = "https://api-qa.newpay.com.ar/v1/debit_card_rules_management/rules/STATUS?
 
 HEADERS_BASE = {
     "Content-Type": "application/json",
-    "Authorization": "Bearer 90a61e3d946f411ddc9c223c0af8",
+    "Authorization": "Bearer 63a84d04925d94e67d451f2eac5c",
     "x-apip-client-id": "test",
     "x-apip-partner-id": "test",
     "x-apip-cuit": "20304050607"
@@ -80,7 +80,7 @@ def ejecutar_pruebas():
             # Ejecutar la solicitud (PUT en lugar de POST)
             try:
                 # OPTIMIZACIÓN 2: session.put con timeout controlado para evitar cuelgues
-                response = session.put(url, headers=headers, json=payload, timeout=3.0)
+                response = session.put(url, headers=headers, json=payload, timeout=10.0)
             except Exception as e:
                 # Captura de errores de red mapeada correctamente a la Dataclass
                 resultados.append(TestCaseResult(

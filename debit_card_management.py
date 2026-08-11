@@ -15,7 +15,7 @@ URL = "https://api-qa.newpay.com.ar/v1/debit_card_management/cards"
 
 HEADERS_BASE = {
     "Content-Type": "application/json",
-    "Authorization": "Bearer d7c63152704a3c7063ff37799126",  
+    "Authorization": "Bearer 4c5cc86bf601bf9cc8f39072012d",  
     "x-apip-client-id": "test",  
     "x-apip-partner-id": "test", 
     "x-apip-cuit": "20304050607" 

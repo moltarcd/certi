@@ -4,24 +4,41 @@ import copy
 # ======================================================
 # OBJETO BASE REUTILIZABLE
 # ======================================================
-BASE_PAYLOAD = {
+BASE_PAYLOAD =  {
     "bank_code": "007",
     "origin": {"ip_address": "10.10.10.3", "channel": "Z"},
     "client": {
-        "document_type": "DNI", "document_number": "26778152", "gender": "M",
-        "first_name": "Pablo", "lastname": "Dostin", "marital_status": "Separated",
-        "birth_date": "2000-02-01", "area_code": "11", "phone_number": "12345678", "holder_cuit": "27267678805"
+        "document_type": "DNI", 
+		"document_number": "26778160", 
+		"gender": "M",
+        "first_name": "Arturo", 
+		"lastname": "Shark", 
+		"marital_status": "Separated",
+        "birth_date": "2000-02-01", 
+		"area_code": "11", 
+		"phone_number": "12345678", 
+		"holder_cuit": "20267781605"
     },
     "card": {
-        "card_number": "3cwCYpUbheYtHfE8tA+F1DwjPB24uYi18zexXOxHOqE=abcdefgh12345678",
-        "member": "001", "expiration_date": "2611", "client_class": "9", "card_status": "1", "branch": "123"
+        "card_number": "Z8aMtaYPI+4fRVXGwB93g31chQmzYah5ilND75AQFlI=abcdefgh12345678",
+        "member": "001", 
+		"expiration_date": "2611", 
+		"client_class": "9", 
+		"card_status": "1", 
+		"branch": "123"
     },
     "address": {
-        "street": "Lavarden", "number": "245", "floor": "2", "department": "9",
-        "province": "LRJ", "city": "La Rioja", "zip_code": "5300"
+        "street": "Lavarden", 
+		"number": "245", 
+		"floor": "2", 
+		"department": "9",
+        "province": "LRJ", 
+		"city": "La Rioja", 
+		"zip_code": "5300"
     },
     "accounts": [{"account_number": "000011111978011", "account_type": "CCD", "account_status": "2"}]
 }
+
 
 # ======================================================
 # MODIFICADORES DINÁMICOS
@@ -51,7 +68,50 @@ def setear(path, value):
 # ======================================================
 # RESPUESTA EXITOSA BASE (HAPPY PATH)
 # ======================================================
-HAPPY_RESPONSE = "{'bank_code': '007', 'client': {...}, 'card': {'masked_card_number': '...'}}"
+HAPPY_RESPONSE = """{
+    'bank_code': 'string',
+    'origin': {
+        'ip_address': 'string',
+        'channel': 'string'
+    },
+    'client': {
+        'document_type': 'string',
+        'document_number': 'string',
+        'gender': 'string',
+        'first_name': 'string',
+        'lastname': 'string',
+        'marital_status': 'string',
+        'birth_date': 'yyyy-MM-dd',
+        'area_code': 'string',
+        'phone_number': 'string',
+        'holder_cuit': 'string'
+    },
+    'card': {
+        'masked_card_number': 'string',
+        'member': 'string',
+        'expiration_date': 'yyMM',
+        'client_class': 'string',
+        'card_status': 'string',
+        'branch': 'string'
+    },
+    'address': {
+        'street': 'string',
+        'number': 'string',
+        'floor': 'string',
+        'department': 'string',
+        'province': 'string',
+        'city': 'string',
+        'zip_code': 'string'
+    },
+    'accounts': [
+        {
+            'account_number': 'string',
+            'account_type': 'string',
+            'account_status': 'string'
+        }
+    ]
+}"""
+
 
 # ======================================================
 # MATRIZ DE CASOS DE PRUEBA (TEST_CASES)
@@ -94,11 +154,63 @@ TEST_CASES = [
     {"id":"C400-16 Longitud excedida - document_number","requisito":"Longitud máxima","descripcion":"document_number demasiado largo - DCM-BAD_REQUEST","expected_code":"DCM-BAD_REQUEST","expected_response":"{'error': {'code': 'DCM-BAD_REQUEST', 'message': 'The data entered for document_number is incorrect or exceeds the maximum length'}}","modificador":setear("client.document_number","123456789012345")},
     {"id":"C400-17 Longitud excedida - first_name","requisito":"Longitud máxima","descripcion":"first_name demasiado largo - DCM-BAD_REQUEST","expected_code":"DCM-BAD_REQUEST","expected_response":"{'error': {'code': 'DCM-BAD_REQUEST', 'message': 'The data entered for first_name is incorrect or exceeds the maximum length'}}","modificador":setear("client.first_name","A"*101)},
     {"id":"C400-18 Longitud excedida - street","requisito":"Longitud máxima","descripcion":"street demasiado largo - DCM-BAD_REQUEST","expected_code":"DCM-BAD_REQUEST","expected_response":"{'error': {'code': 'DCM-BAD_REQUEST', 'message': 'The data entered for street is incorrect or exceeds the maximum length'}}","modificador":setear("address.street","A"*101)},
-    {"id":"C400-19 Fecha expiración inválida - vigencia","requisito":"Validación de fecha","descripcion":"Fecha de expiración supera vigencia del BIN - DCM - Data problem","expected_code":"DCM - Data problem","expected_response":"{'error': {'code': 'DCM - Data problem', 'message': 'Error calculating the validity. The entered date is not correct or exceeds the years stored in BD'}}","modificador":setear("card.expiration_date","9999")},
+    {"id":"C400-19 Fecha expiración inválida - vigencia","requisito":"Validación de fecha","descripcion":"Fecha de expiración supera vigencia del BIN - DCM - Data problem","expected_code":"DCM-DATA_PROBLEM","expected_response":"{'error': {'code': 'DCM-DATA_PROBLEM', 'message': 'Error calculating the validity.The entered date is not correct or exceeds the years stored in BD'}}","modificador":setear("card.expiration_date","4011")},
+    
     {"id":"C400-20 Formato inválido - datos no numéricos","requisito":"Formato de datos","descripcion":"Datos inválidos en campos numéricos - DCM - INVALID_DATA","expected_code":"DCM - INVALID_DATA","expected_response":"{'error': {'code': 'DCM - INVALID_DATA', 'message': 'The transaction is rejected due to a problem in the format of the message'}}","modificador":setear("client.phone_number","ABCDEFG")},
     {"id":"C400-21 Tarjeta inválida - cifrado incorrecto","requisito":"Validación de tarjeta","descripcion":"Número de tarjeta con cifrado incorrecto - DCM - INVALID_CARD","expected_code":"DCM - INVALID_CARD","expected_response":"{'error': {'code': 'DCM - INVALID_CARD', 'message': 'The inserted card is not valid'}}","modificador":setear("card.card_number","tarjeta_invalida")},
-    {"id":"C400-22 Tarjeta inválida - no pertenece a la institución","requisito":"Validación de tarjeta","descripcion":"Tarjeta no pertenece a la institución - DCM - INVALID_CARD","expected_code":"DCM - INVALID_CARD","expected_response":"{'error': {'code': 'DCM - INVALID_CARD', 'message': 'The inserted card is not valid'}}","modificador":setear("card.card_number","12345678901234567890123456789012")},
+    {"id":"C400-22 Tarjeta inválida - no pertenece a la institución","requisito":"Validación de tarjeta","descripcion":"Tarjeta no pertenece a la institución - DCM - INVALID_CARD","expected_code":"DCM-INVALID_CARD","expected_response":"{'error': {'code': 'DCM - INVALID_CARD', 'message': 'The inserted card is not valid'}}","modificador":setear("card.card_number","UJJd/L0hwG8sGxuQ0lH82PEK+DbLAeYxRCN2KHBw8eM=abcdefgh12345678")},
     {"id":"C400-23 Datos inconsistentes","requisito":"Consistencia de datos","descripcion":"Los datos no coinciden con registros anteriores - DCM-INCONSISTENT DATA","expected_code":"DCM-INCONSISTENT DATA","expected_response":"{'error': {'code': 'DCM-INCONSISTENT DATA', 'message': 'The data entered is inconsistent'}}","modificador":lambda p: p},
+# ---------- C400 – ERRORES DE VALIDACIÓN CUIt ----------
+
+{"id":"C400-24 Holder CUIT vacío",
+ "requisito":"holder_cuit obligatorio",
+ "descripcion":"Enviar holder_cuit vacío",
+ "expected_code":"DCM-BAD_REQUEST",
+ "expected_response":"holder_cuit is required",
+ "modificador":setear("client.holder_cuit","")},
+
+{"id":"C400-25 Holder CUIT nulo",
+ "requisito":"holder_cuit obligatorio",
+ "descripcion":"Enviar holder_cuit null",
+ "expected_code":"DCM-BAD_REQUEST",
+ "expected_response":"holder_cuit is required",
+ "modificador":setear("client.holder_cuit",None)},
+
+{"id":"C400-26 Holder CUIT ausente",
+ "requisito":"holder_cuit obligatorio",
+ "descripcion":"Eliminar holder_cuit del request",
+ "expected_code":"DCM-BAD_REQUEST",
+ "expected_response":"holder_cuit is required",
+ "modificador":borrar("client.holder_cuit")},
+
+{"id":"C400-27 Holder CUIT menor a 11 dígitos",
+ "requisito":"Longitud válida de holder_cuit",
+ "descripcion":"Enviar holder_cuit con 10 dígitos",
+ "expected_code":"DCM-BAD_REQUEST",
+ "expected_response":"holder_cuit length invalid",
+ "modificador":setear("client.holder_cuit","2726767880")},
+
+{"id":"C400-28 Holder CUIT mayor a 11 dígitos",
+ "requisito":"Longitud válida de holder_cuit",
+ "descripcion":"Enviar holder_cuit con 12 dígitos",
+ "expected_code":"DCM-BAD_REQUEST",
+ "expected_response":"holder_cuit length invalid",
+ "modificador":setear("client.holder_cuit","272676788055")},
+
+{"id":"C400-29 Holder CUIT con letras",
+ "requisito":"Formato numérico de holder_cuit",
+ "descripcion":"Enviar holder_cuit alfanumérico",
+ "expected_code":"DCM-BAD_REQUEST",
+ "expected_response":"holder_cuit format invalid",
+ "modificador":setear("client.holder_cuit","27A67678805")},
+
+{"id":"C400-30 Holder CUIT con caracteres especiales",
+ "requisito":"Formato numérico de holder_cuit",
+ "descripcion":"Enviar holder_cuit con guiones",
+ "expected_code":"DCM-BAD_REQUEST",
+ "expected_response":"holder_cuit format invalid",
+ "modificador":setear("client.holder_cuit","27-26767880-5")},
+
 
     # ---------- C401 – ERRORES DE AUTENTICACIÓN ----------
     {"id":"C401-01 Token ausente","requisito":"Autenticación","descripcion":"Request sin token de autorización - APIM-401","expected_code":"APIM-401","expected_response":"{'error': {'code': 'APIM-401', 'title': 'Unauthorized'}}","modificador":lambda p: p, "headers_override": {"Content-Type": "application/json"}},

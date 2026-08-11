@@ -159,6 +159,41 @@ class APITestReporter:
             fila.cells[2].text = resultado['descripcion']
         
         document.add_paragraph('')
+        # ======================================================        
+                # 1. CASOS Sandbox
+        # ======================================================
+        document.add_heading('1.1 Casos Sandbox', level=1)
+
+        tabla_casos = document.add_table(rows=1, cols=3)
+        tabla_casos.style = 'Light Grid Accent 1'
+        tabla_casos.autofit = True
+
+        # Configurar ancho de columnas
+        tabla_casos.columns[0].width = Inches(0.5)
+        tabla_casos.columns[1].width = Inches(2.5)
+        tabla_casos.columns[2].width = Inches(5)
+
+        # Encabezados
+        encabezados = tabla_casos.rows[0].cells
+        encabezados[0].text = 'N°'
+        encabezados[1].text = 'ID del Caso'
+        encabezados[2].text = 'Objetivo'
+
+        # Formato encabezados
+        for cell in encabezados:
+            for paragraph in cell.paragraphs:
+                if paragraph.runs:
+                    paragraph.runs[0].font.bold = True
+                    paragraph.runs[0].font.size = Pt(12)
+
+            cell.paragraphs[0].alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+        document.add_paragraph('')
+        
+        for _ in range(5): # 5 filas vacías
+         tabla_casos.add_row()
+        
+
         
         # ======================================================
         # 2. EVIDENCIAS 
@@ -295,7 +330,7 @@ class APITestReporter:
             run.bold = True
 
             
-            document.add_heading('Observaciones', level=3)
+           ## document.add_heading('Observaciones', level=3)
 
             if i < len(resultados):
                 document.add_page_break()

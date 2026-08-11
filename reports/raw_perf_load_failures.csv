@@ -1,0 +1,3 @@
+Method,Name,Error,Occurrences,First Seen,Last Seen
+POST,/v1/cards/debit/lost-stolen,"gaierror(11001, 'getaddrinfo failed')",1042,2026-07-15T18:53:50Z,2026-07-15T18:56:45Z
+POST,/v1/cards/debit/lost-stolen,CatchResponseError('Failed with status: 0 - '),3195,2026-07-15T18:53:50Z,2026-07-15T18:56:45Z
