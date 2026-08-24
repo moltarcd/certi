@@ -1,0 +1,354 @@
+=== CAPTURA 1 ===
+ BASE24-BASE    CARD PREFIX            TES1  BMBS  26/08/19  11:45  01 OF 22
+ PREFIX: 451764               PAN LENGTH: 16                 FIID: BMBS
+
+                           CARD TRACK INFORMATION
+
+    CARD TYPE: E   (USER DEFINED)          CARD PROFILE:        MBR LENGTH: 3
+TRACK 1 SETTINGS:                  TRACK 2 SETTINGS:       TRACK PREFERENCE: 0
+      MBR #:   0 POFST/PVV:   0          MBR #:  16 POFST/PVV:   0
+ALGO #/PVKI:   0  EXP DATE:   0    ALGO #/PVKI:   0  EXP DATE:  29
+LENGTH MIN/MAX:  0 /  0            LENGTH MIN/MAX:  0 /  0      BAD TRK LEN: 0
+
+                           PROCESSING INFORMATION
+          PIN DE POS:     1=SOLO POS/2=POS/ATM      OPERA POS:   (S/N)
+     PAN ACCESS TYPE: 2   (MBR 1)              PREFIX ROUTING: A
+      EXP CHECK TYPE: 0   (NO CHECK)              MOD10 CHECK: 0 (NO CHECK   )
+ ATC CHECK: 0 (DISABLED)         ATC LIMIT:    0  VIGENCIA MAX CHIP : 6  ANIOS
+
+ RECORD LAST CHANGED: 26/08/18  18:35   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+RECORD RETRIEVED FROM  $DUFFY.TES1DATA.CPFN                        EXP   0000
+
+=== CAPTURA 2 ===
+ BASE24-BASE    CARD PREFIX            TES1  BMBS  26/08/19  11:45  02 OF 22
+ PREFIX: 451764               PAN LENGTH: 16                 FIID: BMBS
+
+                               PIN INFORMATION
+ P I N  VERIF.KEYA GROUP : BMB1      PIN CHECK TYPE : 01 DES (IBM 3624)
+        MAX  P I N  TRIES:   4       BAD PIN ACTION : 0  (RETURN CARD)
+    CARDHOLDER PIN SELECT: Y (Y/N)   ALGO NUMBER LOC: 0  (NOT REQUIRED)
+ CHECK IF HOST ONLINE PIN: Y (Y/N)   POFST/PVV LOC  : 2  (ON CAF)
+ PIN TRIES RESET OPTION : 3 (GOOD PIN & MAX PIN TRIES NOT REACHED)
+                        CARD VERIFICATION INFORMATION
+ CARD VERIF.KEYA GROUP: BMBS    MANUAL CARD VERIF.KEYA GROUP: BMBS
+ DATE CHECK TYPE: 1 (MMYY)            MANUAL DATE CHECK TYPE: 1 (MMYY)
+ CV DATE: 0101  MANUAL CV DATE: 0000  CHECK IF HOST ONLINE CV: Y (Y/N)
+ CV CHECK TYPE: 0 (CV DISABLED)          MANUAL CV CHECK TYPE: 1
+ TRACK1 CVD OFST:  0 TRACK1 SRVC CODE OFST:  0  CVV SI MARCA CAF:   (S/N)
+ TRACK2 CVD OFST: 25 TRACK2 SRVC CODE OFST: 22  EXPIRATION DATE COMPARISON: 0
+      BAD CV ACTION - MANUAL ENTRY        :  0 (DENOTE & CONTINUE)
+      BAD CV ACTION - TRACK DATA COMPLETE :  0 (DENOTE & CONTINUE)
+      BAD CV ACTION - TRACK DATA UNCERTAIN:  0 (DENOTE & CONTINUE)
+ RECORD LAST CHANGED: 26/08/18  18:35   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 3 ===
+ BASE24-BASE    CARD PREFIX            TES1  BMBS  26/08/19  11:45  03 OF 22
+ PREFIX: 451764               PAN LENGTH: 16                 FIID: BMBS
+
+                          BASE PROCESSING INFORMATION
+
+CLASS              ( 0 )        ( 1 )        ( 2 )        ( 3 )        ( 4 )
+ACTIVITY LIMITS
+
+CASH WDL ON      1000000000      1000000      1500000       700000        12000
+CASH WDL OFF     1000000000      1000000       750000       400000        10000
+
+CASH ADV ON               0            0            0        10000            0
+CASH ADV OFF              0            0            0        10000            0
+
+AGGR ON          1000000000      1000000   4000000000      5000000      2015000
+AGGR OFF         1000000000      1000000     10000000      5000000      2015000
+
+TRANSF ON                 0            0            0        50000            0
+TRANSF OFF                0            0            0        48000            0
+ RECORD LAST CHANGED: 26/08/18  18:35   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 4 ===
+ BASE24-BASE    CARD PREFIX            TES1  BMBS  26/08/19  11:45  04 OF 22
+ PREFIX: 451764               PAN LENGTH: 16                 FIID: BMBS
+
+                          BASE PROCESSING INFORMATION
+
+CLASS              ( 5 )        ( 6 )        ( 7 )        ( 8 )        ( 9 )
+ACTIVITY LIMITS
+
+CASH WDL ON           15000            0       100000            0    100000000
+CASH WDL OFF          10000            0       100000            0    100000000
+
+CASH ADV ON               0            0       100000            0            0
+CASH ADV OFF              0            0       100000            0            0
+
+AGGR ON              150000       200000       250000            0    100000000
+AGGR OFF              10000       100000       100000            0    100000000
+
+TRANSF ON                 0            0            0            0            0
+TRANSF OFF                0            0            0            0            0
+ RECORD LAST CHANGED: 26/08/18  18:35   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 5 ===
+ BASE24-ATM     CARD PREFIX            TES1  BMBS  26/08/19  11:45  05 OF 22
+ PREFIX: 451764               PAN LENGTH: 16                 FIID: BMBS
+
+                         ATM AUTHORIZATION INFORMATION
+
+           MIN CASH ADV AMT:         0     STANDARD CASH ADV INCR:         1
+TIMES USED PER PERIOD LIMIT: 9999          ISSUER TXN PRFL:
+CUOTAS PESOS:    CUOTAS DOLARES:    SHARING:      INH.EXTRACCION DOLAR   (S/N)
+
+            DEPOSIT CREDIT INFORMATION
+                DEPOSIT CREDIT PERCENT:         0       CASH DEPOSITS   0
+     MAXIMUM NUMBER OF DEPOSIT CREDITS:         0
+            MAXIMUM CREDIT PER DEPOSIT:         0                       0
+         MAXIMUM DEPOSIT CREDIT AMOUNT:         0
+         IDENTIFICACION POSITIVA
+                 F. HORA 1: 00 (HS)            F. HORA 2:    (HS)
+    DATOS A SOLICITAR:   (*********)   VERIFICACION DATOS:   (*********)
+    INGRESO DE DATOS:    (*********)   MONTO :         0  ACUMULADO :         0
+                                       MONTO2:         0  ACUMULADO2:         0
+ RECORD LAST CHANGED: 26/08/18  18:35   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 6 ===
+ BASE24-ATM     CARD PREFIX            TES1  BMBS  26/08/19  11:45  06 OF 22
+ PREFIX: 451764               PAN LENGTH: 16                 FIID: BMBS
+
+                          ATM PROCESSING INFORMATION
+
+CLASS              ( 0 )        ( 1 )        ( 2 )        ( 3 )        ( 4 )
+CASH WDL ON        10000000      1000000      2000000       700000        12000
+CASH WDL OFF       10000000      1000000       750000       400000        10000
+CASH ADV ON          100000      1000000      1000000        10000            0
+CASH ADV OFF         100000      1000000      1000000        10000            0
+PES ON               100000      1000000            0       100000       100000
+PES OFF              100000      1000000            0       100000        10000
+AGGR ON          1000000000      1000000   4000000000      5000000      2015000
+AGGR OFF         1000000000      1000000     10000000      5000000      2015000
+MULT CASH WDL ON         01           00           00           00           00
+MULT CASH WDL OFF        01           00           00           00           00
+TRANS LMT ON         100000        10000         3500        50000       100000
+TRANS LMT OFF        100000        10000         3500        48000         5000
+MULT ID +              0.00         0.00         0.00         0.00         0.00
+ RECORD LAST CHANGED: 26/08/18  18:35   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 7 ===
+ BASE24-ATM     CARD PREFIX            TES1  BMBS  26/08/19  11:45  07 OF 22
+ PREFIX: 451764               PAN LENGTH: 16                 FIID: BMBS
+
+                          ATM PROCESSING INFORMATION
+
+CLASS              ( 5 )        ( 6 )        ( 7 )        ( 8 )        ( 9 )
+CASH WDL ON           10000       150000        20000            0     10000000
+CASH WDL OFF          10000       100000         5000            0     10000000
+CASH ADV ON           10000            0            0            0            0
+CASH ADV OFF          10000            0            0            0            0
+PES ON               150000       200000       250000            0            0
+PES OFF               10000       100000        10000            0            0
+AGGR ON              150000       200000       250000            0    100000000
+AGGR OFF              10000       100000       100000            0    100000000
+MULT CASH WDL ON         00           00           00           00           00
+MULT CASH WDL OFF        00           00           00           00           00
+TRANS LMT ON         200000       300000       600000            0            0
+TRANS LMT OFF          5000       300000         5000            0            0
+MULT ID +              0.00         0.00         0.00         0.00         0.00
+ RECORD LAST CHANGED: 26/08/18  18:35   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 8 ===
+ BASE24-ATM     CARD PREFIX            TES1  BMBS  26/08/19  11:45  08 OF 22
+ PREFIX: 451764               PAN LENGTH: 16                 FIID: BMBS
+
+                          ATM PROCESSING INFORMATION (2)
+
+CLASS              ( 0 )        ( 1 )        ( 2 )        ( 3 )        ( 4 )
+
+DEB.VEND.M                0            0            0            0            0
+DEB.VEND.C                0            0            0            0            0
+USO FUTURO4               0            0            0            0            0
+MONTO MANDATO             0            0            0            0            0
+
+ RECORD LAST CHANGED: 26/08/18  18:35   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 9 ===
+ BASE24-ATM     CARD PREFIX            TES1  BMBS  26/08/19  11:45  09 OF 22
+ PREFIX: 451764               PAN LENGTH: 16                 FIID: BMBS
+
+                          ATM PROCESSING INFORMATION (2)
+
+CLASS              ( 5 )        ( 6 )        ( 7 )        ( 8 )        ( 9 )
+
+DEB.VEND.M                0            0            0            0            0
+DEB.VEND.C                0            0            0            0            0
+USO FUTURO4               0            0            0            0            0
+MONTO MANDATO             0            0            0            0            0
+
+ RECORD LAST CHANGED: 26/08/18  18:35   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 10 ===
+ BASE24-POS     CARD PREFIX            TES1  BMBS  26/08/19  11:45  10 OF 22
+ PREFIX: 451764               PAN LENGTH: 16                 FIID: BMBS
+
+                          POS AUTHORIZATION INFORMATION
+
+       MINIMUM CASH ADV AMOUNT:         0  MIN. COMPRA CASHBACK:         1
+
+   STANDARD CASH ADV INCREMENT:         1         MAX. CASHBACK:      3000
+
+   TIMES USED PER PERIOD LIMIT: 9999              LIM. CASHBACK:      3000
+
+   ISSUER TXN PROFILE:                            PARTIAL AUTH : S   (S/N)
+
+ RECORD LAST CHANGED: 26/08/18  18:35   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 11 ===
+ BASE24-POS     CARD PREFIX            TES1  BMBS  26/08/19  11:45  11 OF 22
+ PREFIX: 451764               PAN LENGTH: 16                 FIID: BMBS
+
+                                POS INFORMATION
+
+      MAXIMUM NUMBER OF REFUND/REPLENISH: 9999
+        MAXIMUM NUMBER OF PRE-AUTH HOLDS:  0
+                       CHARGEBACK UPDATE:  N  (DO NOT UPDATE DATABASE)
+                    REPRESENTMENT UPDATE:  N  (DO NOT UPDATE DATABASE)
+                 DEFAULT COMBO CARD TYPE:  2  (DEBIT CARD)
+                    DEFAULT ACCOUNT TYPE: 00  (NO ACCOUNT)
+                                          00  (NO ACCOUNT)
+                                          00  (NO ACCOUNT)
+                           POS PROCESSING INFORMATION
+
+                                  ISSUER: 01 BANELCO
+                     PIN PROCESSING FLAG: 0 (PIN NOT REQUIRED)
+               ADDRESS VERIFICATION ALGO: V  (VISANET)
+  CHECK IF HOST IS ONLINE    ADDR VERIFY: N  (Y/N)
+ RECORD LAST CHANGED: 26/08/18  18:35   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 12 ===
+ BASE24-POS     CARD PREFIX            TES1  BMBS  26/08/19  11:45  12 OF 22
+ PREFIX: 451764               PAN LENGTH: 16                 FIID: BMBS
+
+                          POS PROCESSING INFORMATION
+
+CLASS              ( 0 )        ( 1 )        ( 2 )        ( 3 )        ( 4 )
+CASH WDL ON            1000         1800         3000         5000        10000
+CASH WDL OFF           1000         1800         3000         5000         5000
+CASH ADV ON               0            0            0            0            0
+CASH ADV OFF              0            0            0            0            0
+AGGR ON          1000000000      1000000   4000000000      5000000      2015000
+AGGR OFF         1000000000      1000000     10000000      5000000      2015000
+PURCHASE ON               0            0            0            0            0
+PURCHASE OFF              0            0            0            0            0
+PER REFUND ON          1000         1800         3000         5000        10000
+PER REFUND OFF         1000         1800         3000         5000         5000
+REFUND ON              1000         1800         3000         5000        10000
+REFUND OFF             1000         1800         3000         5000         5000
+
+ RECORD LAST CHANGED: 26/08/18  18:35   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 13 ===
+ BASE24-POS     CARD PREFIX            TES1  BMBS  26/08/19  11:45  13 OF 22
+ PREFIX: 451764               PAN LENGTH: 16                 FIID: BMBS
+
+                          POS PROCESSING INFORMATION
+
+CLASS              ( 5 )        ( 6 )        ( 7 )        ( 8 )        ( 9 )
+CASH WDL ON           20000        40000        70000            0            0
+CASH WDL OFF           5000         5000         5000            0            0
+CASH ADV ON               0            0            0            0            0
+CASH ADV OFF              0            0            0            0            0
+AGGR ON              150000       200000       250000            0    100000000
+AGGR OFF              10000       100000       100000            0    100000000
+PURCHASE ON               0            0            0            0            0
+PURCHASE OFF              0            0            0            0            0
+PER REFUND ON         20000        40000        70000            0            0
+PER REFUND OFF         5000         5000         5000            0            0
+REFUND ON             20000        40000        70000            0            0
+REFUND OFF             5000         5000         5000            0            0
+
+ RECORD LAST CHANGED: 26/08/18  18:35   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 14 ===
+ BASE24-EMV     CARD PREFIX            TES1  BMBS  26/08/19  11:45  14 OF 22
+ PREFIX: 451764               PAN LENGTH: 16                 FIID: BMBS
+
+                              EMV INFORMATION
+        EMV CHECK: Y (Y/N)                   KEYI GROUP: RIOP
+   CAM CHECK TYPE: 2                     ATC CHECK TYPE: 0
+         EMV IAD FORMAT: 1                   STATUS CHECK ACTION INDEX: 1 (1-6)
+   ALTERNATE IAD FORMAT: 1                      ALTERNATE ACTION INDEX: 1 (1-6)
+    SCRIPT TEMPLATE TAG: 0                           SCRIPT MAC LENGTH: 0
+     CHECK IF HOST ONLINE -     CAM: Y (Y/N)              FALLBACK: Y (Y/N)
+                            TVR/CVR: Y (Y/N)    REASON ONLINE CODE: Y (Y/N)
+     BAD CAM ACTION - DATA RELIABLE: 1 (DENY AND RETURN)
+   BAD CAM ACTION - DATA UNRELIABLE: 1 (DENY AND RETURN)
+                 EMV PREFIX ROUTING:
+           CARD VERIFY - CHECK TYPE: 3 (ALWAYS)            EMV CV DATE: 0501
+                       CHECK METHOD: 1 (NO SRV CODE/STAN       CV DATA: 999
+   UPDATE COUNTERS -       DECLINED TRANSACTION: 0 (DO NOT UPDATE)
+                 APPROVED FINANCIAL TRANSACTION: 0 (DO NOT UPDATE)
+             APPROVED NON-FINANCIAL TRANSACTION: 0 (DO NOT UPDATE)
+ RECORD LAST CHANGED: 26/08/18  18:35   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 15 ===
+ BASE24-EMV     CARD PREFIX            TES1  BMBS  26/08/19  11:45  15 OF 22
+ PREFIX: 451764               PAN LENGTH: 16                 FIID: BMBS
+
+                            ATM EMV INFORMATION
+                    FALLBACK ACTION: 0
+             BAD OFFLINE PIN ACTION: 0
+      OFFLINE PIN MANAGEMENT ACTION: 0
+      NEW PIN TRANSPORT KEY LOCATOR: 0000000000000000
+
+                            POS EMV INFORMATION
+                    FALLBACK ACTION: 0
+             MANUAL FALLBACK ACTION: 0
+        FORCE ONLINE FALLBACK CHECK: N (Y/N)
+                         EMV ISSUER: 00
+               DELAYED AUTH SUPPORT: N (Y/N)
+                          CAP GROUP:
+                     CAP ATC UPDATE: 0 (CAP)
+     BAD CAP TOKEN VALIDATION LIMIT:    0
+   HOST CAP TOKEN VALIDATION OPTION: 0
+ RECORD LAST CHANGED: 26/08/18  18:35   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+

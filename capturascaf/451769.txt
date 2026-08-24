@@ -1,0 +1,353 @@
+=== CAPTURA 1 ===
+ BASE24-BASE    CARD PREFIX            TES1  GLCA  26/08/19  11:43  01 OF 22
+ PREFIX: 451769               PAN LENGTH: 16                 FIID: GLCA
+
+                           CARD TRACK INFORMATION
+
+    CARD TYPE: E   (USER DEFINED)          CARD PROFILE:        MBR LENGTH: 3
+TRACK 1 SETTINGS:                  TRACK 2 SETTINGS:       TRACK PREFERENCE: 0
+      MBR #:   0 POFST/PVV:   0          MBR #:  16 POFST/PVV:   0
+ALGO #/PVKI:   0  EXP DATE:   0    ALGO #/PVKI:   0  EXP DATE:  18
+LENGTH MIN/MAX:  0 /  0            LENGTH MIN/MAX:  0 /  0      BAD TRK LEN: 0
+
+                           PROCESSING INFORMATION
+          PIN DE POS:     1=SOLO POS/2=POS/ATM      OPERA POS:   (S/N)
+     PAN ACCESS TYPE: 2   (MBR 1)              PREFIX ROUTING: A
+      EXP CHECK TYPE: 0   (NO CHECK)              MOD10 CHECK: 0 (NO CHECK   )
+ ATC CHECK: 0 (DISABLED)         ATC LIMIT:    0  VIGENCIA MAX CHIP : 6  ANIOS
+
+ RECORD LAST CHANGED: 26/08/18  17:55   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 2 ===
+ BASE24-BASE    CARD PREFIX            TES1  GLCA  26/08/19  11:44  02 OF 22
+ PREFIX: 451769               PAN LENGTH: 16                 FIID: GLCA
+
+                               PIN INFORMATION
+ P I N  VERIF.KEYA GROUP :           PIN CHECK TYPE : 00 (NO VERIFICATION)
+        MAX  P I N  TRIES:   3       BAD PIN ACTION : 0  (RETURN CARD)
+    CARDHOLDER PIN SELECT: N (Y/N)   ALGO NUMBER LOC: 0  (NOT REQUIRED)
+ CHECK IF HOST ONLINE PIN: N (Y/N)   POFST/PVV LOC  : 2  (ON CAF)
+ PIN TRIES RESET OPTION : 3 (GOOD PIN & MAX PIN TRIES NOT REACHED)
+                        CARD VERIFICATION INFORMATION
+ CARD VERIF.KEYA GROUP: GLCA    MANUAL CARD VERIF.KEYA GROUP: GLCA
+ DATE CHECK TYPE: 0 (YYMM)            MANUAL DATE CHECK TYPE: 1 (MMYY)
+ CV DATE: 0101  MANUAL CV DATE: 0000  CHECK IF HOST ONLINE CV: N (Y/N)
+ CV CHECK TYPE: 0 (CV DISABLED)          MANUAL CV CHECK TYPE: 0
+ TRACK1 CVD OFST:  0 TRACK1 SRVC CODE OFST:  0  CVV SI MARCA CAF:   (S/N)
+ TRACK2 CVD OFST: 25 TRACK2 SRVC CODE OFST: 22  EXPIRATION DATE COMPARISON: 0
+      BAD CV ACTION - MANUAL ENTRY        :  1 (DENY & RETURN)
+      BAD CV ACTION - TRACK DATA COMPLETE :  1 (DENY & RETURN)
+      BAD CV ACTION - TRACK DATA UNCERTAIN:  1 (DENY & RETURN)
+ RECORD LAST CHANGED: 26/08/18  17:55   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 3 ===
+ BASE24-BASE    CARD PREFIX            TES1  GLCA  26/08/19  11:44  03 OF 22
+ PREFIX: 451769               PAN LENGTH: 16                 FIID: GLCA
+
+                          BASE PROCESSING INFORMATION
+
+CLASS              ( 0 )        ( 1 )        ( 2 )        ( 3 )        ( 4 )
+ACTIVITY LIMITS
+
+CASH WDL ON      2000000000      1500000      1500000            0            0
+CASH WDL OFF     2000000000       500000       700000            0            0
+
+CASH ADV ON      2000000000            0            0            0            0
+CASH ADV OFF     2000000000            0            0            0            0
+
+AGGR ON          4000000000   4000000000   4000000000            0            0
+AGGR OFF         4000000000    100000000    100000000            0            0
+
+TRANSF ON             10000            0            0            0            0
+TRANSF OFF            10000       660000       660000            0            0
+ RECORD LAST CHANGED: 26/08/18  17:55   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 4 ===
+ BASE24-BASE    CARD PREFIX            TES1  GLCA  26/08/19  11:44  04 OF 22
+ PREFIX: 451769               PAN LENGTH: 16                 FIID: GLCA
+
+                          BASE PROCESSING INFORMATION
+
+CLASS              ( 5 )        ( 6 )        ( 7 )        ( 8 )        ( 9 )
+ACTIVITY LIMITS
+
+CASH WDL ON       100000000            0            0            0            0
+CASH WDL OFF      100000000            0            0            0            0
+
+CASH ADV ON       100000000            0            0            0            0
+CASH ADV OFF      100000000            0            0            0            0
+
+AGGR ON           100000000            0            0            0            0
+AGGR OFF          100000000            0            0            0            0
+
+TRANSF ON         100000000            0            0            0            0
+TRANSF OFF        100000000            0            0            0            0
+ RECORD LAST CHANGED: 26/08/18  17:55   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 5 ===
+ BASE24-ATM     CARD PREFIX            TES1  GLCA  26/08/19  11:44  05 OF 22
+ PREFIX: 451769               PAN LENGTH: 16                 FIID: GLCA
+
+                         ATM AUTHORIZATION INFORMATION
+
+           MIN CASH ADV AMT:         0     STANDARD CASH ADV INCR:         1
+TIMES USED PER PERIOD LIMIT: 9999          ISSUER TXN PRFL:
+CUOTAS PESOS:    CUOTAS DOLARES:    SHARING:      INH.EXTRACCION DOLAR   (S/N)
+
+            DEPOSIT CREDIT INFORMATION
+                DEPOSIT CREDIT PERCENT:         0       CASH DEPOSITS   0
+     MAXIMUM NUMBER OF DEPOSIT CREDITS:         0
+            MAXIMUM CREDIT PER DEPOSIT:         0                       0
+         MAXIMUM DEPOSIT CREDIT AMOUNT:         0
+         IDENTIFICACION POSITIVA
+                 F. HORA 1: 00 (HS)            F. HORA 2:    (HS)
+    DATOS A SOLICITAR:   (*********)   VERIFICACION DATOS:   (*********)
+    INGRESO DE DATOS:    (*********)   MONTO :         0  ACUMULADO :         0
+                                       MONTO2:         0  ACUMULADO2:         0
+ RECORD LAST CHANGED: 26/08/18  17:55   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 6 ===
+ BASE24-ATM     CARD PREFIX            TES1  GLCA  26/08/19  11:44  06 OF 22
+ PREFIX: 451769               PAN LENGTH: 16                 FIID: GLCA
+
+                          ATM PROCESSING INFORMATION
+
+CLASS              ( 0 )        ( 1 )        ( 2 )        ( 3 )        ( 4 )
+CASH WDL ON      2000000001            0      4000000            0            0
+CASH WDL OFF     2000000001            0      2000000            0            0
+CASH ADV ON         1000000            0            0            0            0
+CASH ADV OFF        1000000            0            0            0            0
+PES ON              1000000            0    200000000            0            0
+PES OFF             1000000            0    100000000            0            0
+AGGR ON          4000000000   4000000000   4000000000            0            0
+AGGR OFF         4000000000    100000000    100000000            0            0
+MULT CASH WDL ON         00           00           00           00           00
+MULT CASH WDL OFF        00           00           00           00           00
+TRANS LMT ON          10000         1000            0         1000         1000
+TRANS LMT OFF         10000         1000       660000         1000         1000
+MULT ID +              0.00         0.00         0.00         0.00         0.00
+ RECORD LAST CHANGED: 26/08/18  17:55   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 7 ===
+ BASE24-ATM     CARD PREFIX            TES1  GLCA  26/08/19  11:44  07 OF 22
+ PREFIX: 451769               PAN LENGTH: 16                 FIID: GLCA
+
+                          ATM PROCESSING INFORMATION
+
+CLASS              ( 5 )        ( 6 )        ( 7 )        ( 8 )        ( 9 )
+CASH WDL ON         1000000            0            0            0            0
+CASH WDL OFF        1000000            0            0            0            0
+CASH ADV ON         1000000            0            0            0            0
+CASH ADV OFF        1000000            0            0            0            0
+PES ON              1000000            0            0            0            0
+PES OFF             1000000            0            0            0            0
+AGGR ON           100000000            0            0            0            0
+AGGR OFF          100000000            0            0            0            0
+MULT CASH WDL ON         00           00           00           00           00
+MULT CASH WDL OFF        00           00           00           00           00
+TRANS LMT ON           1000         1000         1000         1000         1000
+TRANS LMT OFF          1000         1000         1000         1000         1000
+MULT ID +              0.00         0.00         0.00         0.00         0.00
+ RECORD LAST CHANGED: 26/08/18  17:55   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 8 ===
+ BASE24-ATM     CARD PREFIX            TES1  GLCA  26/08/19  11:44  08 OF 22
+ PREFIX: 451769               PAN LENGTH: 16                 FIID: GLCA
+
+                          ATM PROCESSING INFORMATION (2)
+
+CLASS              ( 0 )        ( 1 )        ( 2 )        ( 3 )        ( 4 )
+
+DEB.VEND.M                0            0            0            0            0
+DEB.VEND.C                0            0            0            0            0
+USO FUTURO4               0            0            0            0            0
+MONTO MANDATO          5000         5000       250000         5000         5000
+
+ RECORD LAST CHANGED: 26/08/18  17:55   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 9 ===
+ BASE24-ATM     CARD PREFIX            TES1  GLCA  26/08/19  11:44  09 OF 22
+ PREFIX: 451769               PAN LENGTH: 16                 FIID: GLCA
+
+                          ATM PROCESSING INFORMATION (2)
+
+CLASS              ( 5 )        ( 6 )        ( 7 )        ( 8 )        ( 9 )
+
+DEB.VEND.M                0            0            0            0            0
+DEB.VEND.C                0            0            0            0            0
+USO FUTURO4               0            0            0            0            0
+MONTO MANDATO          5000         5000         5000         5000         5000
+
+ RECORD LAST CHANGED: 26/08/18  17:55   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 10 ===
+ BASE24-POS     CARD PREFIX            TES1  GLCA  26/08/19  11:44  10 OF 22
+ PREFIX: 451769               PAN LENGTH: 16                 FIID: GLCA
+
+                          POS AUTHORIZATION INFORMATION
+
+       MINIMUM CASH ADV AMOUNT:         0  MIN. COMPRA CASHBACK:         0
+
+   STANDARD CASH ADV INCREMENT:         1         MAX. CASHBACK:    170000
+
+   TIMES USED PER PERIOD LIMIT: 9999              LIM. CASHBACK:    170000
+
+   ISSUER TXN PROFILE:                            PARTIAL AUTH : S   (S/N)
+
+ RECORD LAST CHANGED: 26/08/18  17:55   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 11 ===
+ BASE24-POS     CARD PREFIX            TES1  GLCA  26/08/19  11:44  11 OF 22
+ PREFIX: 451769               PAN LENGTH: 16                 FIID: GLCA
+
+                                POS INFORMATION
+
+      MAXIMUM NUMBER OF REFUND/REPLENISH: 9999
+        MAXIMUM NUMBER OF PRE-AUTH HOLDS:  0
+                       CHARGEBACK UPDATE:  N  (DO NOT UPDATE DATABASE)
+                    REPRESENTMENT UPDATE:  N  (DO NOT UPDATE DATABASE)
+                 DEFAULT COMBO CARD TYPE:  2  (DEBIT CARD)
+                    DEFAULT ACCOUNT TYPE: 01  (CHECKING)
+                                          11  (SAVINGS)
+                                          02  (***********)
+                           POS PROCESSING INFORMATION
+
+                                  ISSUER: 01 BANELCO
+                     PIN PROCESSING FLAG: 0 (PIN NOT REQUIRED)
+               ADDRESS VERIFICATION ALGO: V  (VISANET)
+  CHECK IF HOST IS ONLINE    ADDR VERIFY: N  (Y/N)
+ RECORD LAST CHANGED: 26/08/18  17:55   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 12 ===
+ BASE24-POS     CARD PREFIX            TES1  GLCA  26/08/19  11:44  12 OF 22
+ PREFIX: 451769               PAN LENGTH: 16                 FIID: GLCA
+
+                          POS PROCESSING INFORMATION
+
+CLASS              ( 0 )        ( 1 )        ( 2 )        ( 3 )        ( 4 )
+CASH WDL ON      1000000000            0      1500000            0            0
+CASH WDL OFF        1500000            0       750000            0            0
+CASH ADV ON          100000            0            0            0            0
+CASH ADV OFF         100000            0            0            0            0
+AGGR ON          4000000000   4000000000   4000000000            0            0
+AGGR OFF         4000000000    100000000    100000000            0            0
+PURCHASE ON           40000            0            0            0            0
+PURCHASE OFF          30000            0            0            0            0
+PER REFUND ON         25000         5000     15000000         5000         5000
+PER REFUND OFF        15000         5000      7500000         5000         5000
+REFUND ON             25000         5000     15000000         5000         5000
+REFUND OFF            15000         5000      7500000         5000         5000
+
+ RECORD LAST CHANGED: 26/08/18  17:55   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 13 ===
+ BASE24-POS     CARD PREFIX            TES1  GLCA  26/08/19  11:44  13 OF 22
+ PREFIX: 451769               PAN LENGTH: 16                 FIID: GLCA
+
+                          POS PROCESSING INFORMATION
+
+CLASS              ( 5 )        ( 6 )        ( 7 )        ( 8 )        ( 9 )
+CASH WDL ON               0            0            0            0            0
+CASH WDL OFF              0            0            0            0            0
+CASH ADV ON               0            0            0            0            0
+CASH ADV OFF              0            0            0            0            0
+AGGR ON           100000000            0            0            0            0
+AGGR OFF          100000000            0            0            0            0
+PURCHASE ON               0            0            0            0            0
+PURCHASE OFF              0            0            0            0            0
+PER REFUND ON          5000         5000         5000         5000         5000
+PER REFUND OFF         5000         5000         5000         5000         5000
+REFUND ON              5000         5000         5000         5000         5000
+REFUND OFF             5000         5000         5000         5000         5000
+
+ RECORD LAST CHANGED: 26/08/18  17:55   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 14 ===
+ BASE24-EMV     CARD PREFIX            TES1  GLCA  26/08/19  11:44  14 OF 22
+ PREFIX: 451769               PAN LENGTH: 16                 FIID: GLCA
+
+                              EMV INFORMATION
+        EMV CHECK: N (Y/N)                   KEYI GROUP: GLCA
+   CAM CHECK TYPE: 2                     ATC CHECK TYPE: 0
+         EMV IAD FORMAT: 1                   STATUS CHECK ACTION INDEX: 1 (1-6)
+   ALTERNATE IAD FORMAT: 1                      ALTERNATE ACTION INDEX: 1 (1-6)
+    SCRIPT TEMPLATE TAG: 0                           SCRIPT MAC LENGTH: 0
+     CHECK IF HOST ONLINE -     CAM: Y (Y/N)              FALLBACK: Y (Y/N)
+                            TVR/CVR: Y (Y/N)    REASON ONLINE CODE: Y (Y/N)
+     BAD CAM ACTION - DATA RELIABLE: 1 (DENY AND RETURN)
+   BAD CAM ACTION - DATA UNRELIABLE: 1 (DENY AND RETURN)
+                 EMV PREFIX ROUTING:
+           CARD VERIFY - CHECK TYPE: 3 (ALWAYS)            EMV CV DATE: 0501
+                       CHECK METHOD: 1 (NO SRV CODE/STAN       CV DATA: 999
+   UPDATE COUNTERS -       DECLINED TRANSACTION: 0 (DO NOT UPDATE)
+                 APPROVED FINANCIAL TRANSACTION: 0 (DO NOT UPDATE)
+             APPROVED NON-FINANCIAL TRANSACTION: 0 (DO NOT UPDATE)
+ RECORD LAST CHANGED: 26/08/18  17:55   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+
+=== CAPTURA 15 ===
+ BASE24-EMV     CARD PREFIX            TES1  GLCA  26/08/19  11:44  15 OF 22
+ PREFIX: 451769               PAN LENGTH: 16                 FIID: GLCA
+
+                            ATM EMV INFORMATION
+                    FALLBACK ACTION: 0
+             BAD OFFLINE PIN ACTION: 0
+      OFFLINE PIN MANAGEMENT ACTION: 0
+      NEW PIN TRANSPORT KEY LOCATOR: 0000000000000000
+
+                            POS EMV INFORMATION
+                    FALLBACK ACTION: 0
+             MANUAL FALLBACK ACTION: 0
+        FORCE ONLINE FALLBACK CHECK: N (Y/N)
+                         EMV ISSUER: 00
+               DELAYED AUTH SUPPORT: N (Y/N)
+                          CAP GROUP:
+                     CAP ATC UPDATE: 0 (CAP)
+     BAD CAP TOKEN VALIDATION LIMIT:    0
+   HOST CAP TOKEN VALIDATION OPTION: 0
+ RECORD LAST CHANGED: 26/08/18  17:55   BY USER: 0255 , 00000255   CHANGE
+ *********************************** BASE24 ***********************************
+  NEW PAGE:        FILE DESTINATION:        NEW LOGICAL NETWORK ID:
+                     F12-HELP
+

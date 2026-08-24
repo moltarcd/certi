@@ -19,7 +19,7 @@ URL = "https://api-qa.newpay.com.ar/v1/debit_card_security_code/code_information
 
 HEADERS_BASE = {
     "Content-Type": "application/json",
-    "Authorization": "Bearer aa16d813d4cd9dc86453cb40b113"
+    "Authorization": "Bearer 2f9e087b4a7e0794d8e59112d574"
 }
 
 # ======================================================

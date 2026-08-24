@@ -32,11 +32,11 @@ class TestCaseResult:
 
 class APITestReporter:
 
-    def __init__(self, url_endpoint, output_dir="reportes", json_metadata_path="metadata_mail.json"):
+    def __init__(self, url_endpoint, output_dir="reports", json_metadata_path="metadata_mail.json"):
         self.url_endpoint = url_endpoint
         self.output_dir = output_dir
         
-        # 1. Configurar valores por defecto por seguridad (Fallback)
+        # 1. Configurar valores por defecto 
         self.metadata = {
             "commit": "Local Run - No Commit",
             "fecha_commit": datetime.now().strftime("%Y-%m-%d"),
