@@ -1,2 +1,8 @@
-old_reports/
+# Carpetas
 reportes/
+reports/
+capturascaf/
+env/
+__pycache__/
+.venv/
+

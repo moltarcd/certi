@@ -81,8 +81,9 @@ Para registrar cambios y publicar actualizaciones en el repositorio:
 
 ```bash
 git add .
-git commit -m "version 1.0 - Actualizacion de fuentes en reportes"
+git commit -m "version 1.1 - Actualizacion readme"
 git push origin master
+
 ```
 
 ---
